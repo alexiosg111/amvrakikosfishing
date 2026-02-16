@@ -1,0 +1,166 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Trip {
+  id              String       @id @default(cuid())
+  name            String
+  description     String
+  duration        String
+  basePrice       Int
+  maxParticipants Int
+  images          String       @default("[]")
+  highlights      String       @default("[]")
+  isPremium       Boolean      @default(false)
+  isActive        Boolean      @default(true)
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  
+  bookings        Booking[]
+  availabilities  Availability[]
+  reviews         Review[]
+  
+  @@index([isActive, isPremium])
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  PAID
+  CANCELLED
+  COMPLETED
+}
+
+model Booking {
+  id              String        @id @default(cuid())
+  tripId          String
+  date            DateTime
+  participants    Int
+  totalPrice      Int
+  status          BookingStatus @default(PENDING)
+  contactEmail    String
+  contactPhone    String
+  contactName     String
+  notes           String?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  
+  trip            Trip          @relation(fields: [tripId], references: [id])
+  bookingAddOns   BookingAddOn[]
+  payment         Payment?
+  
+  @@index([status])
+  @@index([tripId, date])
+}
+
+model AddOn {
+  id              String         @id @default(cuid())
+  name            String
+  description     String
+  price           Int
+  category        AddOnCategory  @default(GENERAL)
+  isActive        Boolean        @default(true)
+  imageUrl        String?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  
+  bookingAddOns   BookingAddOn[]
+}
+
+enum AddOnCategory {
+  GENERAL
+  FOOD
+  TRANSPORT
+  EQUIPMENT
+  PHOTO
+  PREMIUM
+}
+
+model BookingAddOn {
+  id          String  @id @default(cuid())
+  bookingId   String
+  addOnId     String
+  quantity    Int
+  price       Int
+  
+  booking     Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  addOn       AddOn   @relation(fields: [addOnId], references: [id])
+}
+
+model Availability {
+  id              String   @id @default(cuid())
+  tripId          String
+  date            DateTime
+  availableSpots  Int
+  
+  trip            Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  
+  @@unique([tripId, date])
+}
+
+model Review {
+  id          String   @id @default(cuid())
+  tripId      String
+  userName    String
+  rating      Int
+  comment     String
+  isVerified  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  
+  trip        Trip     @relation(fields: [tripId], references: [id], onDelete: Cascade)
+  
+  @@index([tripId, isVerified])
+}
+
+model Voucher {
+  id              String    @id @default(cuid())
+  code            String    @unique
+  discountType    String    // PERCENTAGE or FIXED
+  discountValue   Int
+  minPurchase     Int       @default(0)
+  maxUses         Int       @default(-1)  // -1 means unlimited
+  usedCount       Int       @default(0)
+  expiresAt       DateTime?
+  isActive        Boolean   @default(true)
+  createdAt       DateTime  @default(now())
+}
+
+model Payment {
+  id              String   @id @default(cuid())
+  bookingId       String   @unique
+  stripePaymentId String
+  amount          Int
+  status          String   @default("pending")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  booking         Booking  @relation(fields: [bookingId], references: [id])
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  message   String
+  status    String   @default("unread")
+  createdAt DateTime @default(now())
+  
+  @@index([status, createdAt])
+}
+
+model GalleryImage {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  imageUrl    String
+  category    String   // catches, boat, scenery, guests
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  
+  @@index([category, isActive])
+}
