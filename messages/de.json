@@ -1,29 +1,29 @@
 {
   "metadata": {
     "title": "Amvrakikos Fishing Trips | Unvergessliche Angelabenteuer",
-    "description": "Erleben Sie unvergessliche Angelabenteuer in der Amvrakikos-Bucht. Professionelle Angeltouren mit Kapitän Nikos."
+    "description": "Erleben Sie unvergessliche Angelabenteuer in der Amvrakikos-Bucht. Professionelle Angelausflüge mit Kapitän Nikos."
   },
   "navigation": {
     "home": "Startseite",
-    "trips": "Touren",
+    "trips": "Ausflüge",
     "gallery": "Galerie",
     "testimonials": "Bewertungen",
-    "about": "Über uns",
+    "about": "Über Uns",
     "faq": "FAQ",
     "contact": "Kontakt",
-    "bookNow": "Jetzt buchen",
+    "bookNow": "Buchen",
     "admin": "Admin"
   },
   "hero": {
-    "title": "Erleben Sie unvergessliche Angelabenteuer in der Amvrakikos-Bucht",
-    "subtitle": "Begleiten Sie Kapitän Nikos auf ein authentisches Angelausflug in den unberührten Gewässern des Amvrakikos-Golfs. Perfekt für Familien, Gruppen und Angelbegeisterte.",
-    "cta": "Tour buchen",
-    "ctaSecondary": "Touren ansehen"
+    "title": "Erleben Sie Unvergessliche Angelabenteuer in der Amvrakikos-Bucht",
+    "subtitle": "Begleiten Sie Kapitän Nikos auf ein authentisches Angelabenteuer in den unberührten Gewässern des Amvrakikos-Golfs. Perfekt für Familien, Gruppen und Angelfreunde.",
+    "cta": "Ausflug Buchen",
+    "ctaSecondary": "Ausflüge Ansehen"
   },
   "trips": {
-    "title": "Unsere Angeltouren",
-    "subtitle": "Wählen Sie aus unseren sorgfältig zusammengestellten Angel-Erlebnissen",
-    "allTrips": "Alle Touren",
+    "title": "Unsere Angelausflüge",
+    "subtitle": "Wählen Sie aus unseren sorgfältig zusammengestellten Angelerlebnissen",
+    "allTrips": "Alle Ausflüge",
     "premium": "Premium",
     "standard": "Standard",
     "duration": "Dauer",
@@ -31,8 +31,8 @@
     "from": "Ab",
     "perPerson": "pro Person",
     "maxParticipants": "Max. Teilnehmer",
-    "bookNow": "Jetzt buchen",
-    "learnMore": "Mehr erfahren",
+    "bookNow": "Jetzt Buchen",
+    "learnMore": "Mehr Erfahren",
     "bestChoice": "Beste Wahl",
     "limitedAvailability": "Begrenzte Verfügbarkeit",
     "highlights": "Highlights",
@@ -41,12 +41,12 @@
     "bestValue": "Bestes Preis-Leistungs-Verhältnis"
   },
   "booking": {
-    "title": "Buchen Sie Ihre Angeltour",
-    "step1": "Tour wählen",
-    "step2": "Extras hinzufügen",
+    "title": "Buchen Sie Ihren Angelausflug",
+    "step1": "Ausflug Wählen",
+    "step2": "Extras Hinzufügen",
     "step3": "Kontaktdaten",
     "step4": "Überprüfung & Bezahlung",
-    "trip": "Tour",
+    "trip": "Ausflug",
     "date": "Datum",
     "participants": "Teilnehmer",
     "contactName": "Vollständiger Name",
@@ -58,27 +58,27 @@
     "discount": "Rabatt",
     "voucherCode": "Gutscheincode",
     "apply": "Anwenden",
-    "payNow": "Jetzt bezahlen",
+    "payNow": "Jetzt Bezahlen",
     "next": "Weiter",
     "back": "Zurück",
-    "submit": "Buchung abschicken",
+    "submit": "Buchung Absenden",
     "success": "Buchung erfolgreich!",
-    "successMessage": "Vielen Dank für Ihre Buchung. Wir werden Sie in Kürze kontaktieren.",
+    "successMessage": "Vielen Dank für Ihre Buchung. Wir werden uns bald mit Ihnen in Verbindung setzen.",
     "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
   },
   "addOns": {
     "title": "Bereichern Sie Ihr Erlebnis",
-    "subtitle": "Fügen Sie diese beliebten Extras hinzu, um Ihre Tour unvergesslich zu machen",
-    "lunch": "Mittagspaket",
-    "lunchDesc": "Frisches lokales Meeresfrüchte-Menü mit Getränken",
-    "photo": "Fotopaket",
-    "photoDesc": "Professionelle Fotos von Ihrem Fang und Ihrem Erlebnis",
+    "subtitle": "Fügen Sie diese beliebten Extras hinzu, um Ihren Ausflug unvergesslich zu machen",
+    "lunch": "Mittagessen-Paket",
+    "lunchDesc": "Frisches lokales Meeresfrüchte-Mittagessen mit Getränken",
+    "photo": "Foto-Paket",
+    "photoDesc": "Professionelle Fotos von Ihrem Fang und Erlebnis",
     "transfer": "Transfer-Service",
-    "transferDesc": "Hotelabholung und Rückgabe inklusive",
+    "transferDesc": "Hotel-Abholung und Rückgabe inklusive",
     "equipment": "Premium-Ausrüstung",
-    "equipmentDesc": "Upgrade auf professionelles Angelgerät",
-    "sunset": "Sonnenuntergangs-Verlängerung",
-    "sunsetDesc": "Verlängern Sie Ihre Tour für einen wunderschönen Sonnenuntergang",
+    "equipmentDesc": "Upgrade auf professionelles Angelzubehör",
+    "sunset": "Sonnenuntergang-Erweiterung",
+    "sunsetDesc": "Verlängern Sie Ihren Ausflug für einen schönen Sonnenuntergang",
     "mostGuests": "Die meisten Gäste wählen dies"
   },
   "gallery": {
@@ -91,42 +91,42 @@
     "all": "Alle"
   },
   "testimonials": {
-    "title": "Was unsere Gäste sagen",
+    "title": "Was Unsere Gäste Sagen",
     "subtitle": "Lesen Sie Bewertungen von unseren zufriedenen Kunden",
     "verified": "Verifizierte Buchung",
-    "writeReview": "Bewertung schreiben",
+    "writeReview": "Bewertung Schreiben",
     "rating": "Bewertung",
-    "submit": "Bewertung absenden"
+    "submit": "Bewertung Absenden"
   },
   "about": {
-    "title": "Über uns",
-    "subtitle": "Lernen Sie Kapitän Nikos kennen und erfahren Sie mehr über unsere Leidenschaft für das Angeln",
+    "title": "Über Uns",
+    "subtitle": "Lernen Sie Kapitän Nikos kennen und erfahren Sie mehr über unsere Leidenschaft fürs Angeln",
     "captain": "Kapitän Nikos",
-    "captainBio": "Mit über 20 Jahren Erfahrung beim Angeln in der Amvrakikos-Bucht kennt Kapitän Nikos alle besten Plätze und Techniken, um Ihnen ein unvergessliches Erlebnis zu garantieren.",
+    "captainBio": "Mit über 20 Jahren Erfahrung im Angeln in der Amvrakikos-Bucht kennt Kapitän Nikos alle besten Plätze und Techniken, um Ihnen ein unvergessliches Erlebnis zu garantieren.",
     "boat": "Unser Boot",
-    "boatSpecs": "Unser voll ausgestattetes Angelschiff ist auf Komfort und Sicherheit ausgelegt, mit moderner Navigationsausrüstung und viel Platz für bis zu 6 Gäste.",
-    "safety": "Sicherheit an erster Stelle",
+    "boatSpecs": "Unser voll ausgestattetes Angelboot ist für Komfort und Sicherheit konzipiert, mit moderner Navigationsausrüstung und Platz für bis zu 6 Gäste.",
+    "safety": "Sicherheit an Erster Stelle",
     "safetyDesc": "Ihre Sicherheit hat Priorität. Wir halten die höchsten Sicherheitsstandards mit zertifizierter Ausrüstung und regelmäßigen Inspektionen ein.",
-    "experience": "Erfahrung zählt",
-    "experienceDesc": "Wir haben Tausende von Gästen aus aller Welt beherbergt und sind stolz darauf, unvergessliche Angelabenteuer zu kreieren."
+    "experience": "Erfahrung Zählt",
+    "experienceDesc": "Wir haben Tausende von Gästen aus der ganzen Welt beherbergt und sind stolz darauf, unvergessliche Angelabenteuer zu schaffen."
   },
   "faq": {
-    "title": "Häufig gestellte Fragen",
-    "subtitle": "Finden Sie Antworten auf häufige Fragen zu unseren Angeltouren",
+    "title": "Häufig Gestellte Fragen",
+    "subtitle": "Finden Sie Antworten auf häufige Fragen zu unseren Angelausflügen",
     "booking": "Buchung & Bezahlung",
-    "trips": "Touren & Erlebnis",
+    "trips": "Ausflüge & Erlebnis",
     "safety": "Sicherheit & Ausrüstung",
     "weather": "Wetter & Stornierungen",
     "contact": "Noch Fragen? Kontaktieren Sie uns"
   },
   "contact": {
-    "title": "Kontakt",
-    "subtitle": "Kontaktieren Sie uns für Fragen oder besondere Wünsche",
+    "title": "Kontaktieren Sie Uns",
+    "subtitle": "Nehmen Sie Kontakt auf für Fragen oder besondere Wünsche",
     "name": "Name",
     "email": "E-Mail",
     "phone": "Telefon (Optional)",
     "message": "Nachricht",
-    "send": "Nachricht senden",
+    "send": "Nachricht Senden",
     "success": "Nachricht erfolgreich gesendet!",
     "successMessage": "Wir werden uns so schnell wie möglich bei Ihnen melden.",
     "address": "Adresse",
@@ -134,17 +134,17 @@
     "location": "Amvrakikos-Bucht, Preveza, Griechenland"
   },
   "footer": {
-    "tagline": "Unvergessliche Angel-Erinnerungen seit 2005",
+    "tagline": "Wir schaffen unvergessliche Angelerinnerungen seit 2005",
     "quickLinks": "Schnelllinks",
     "contact": "Kontakt",
-    "followUs": "Folgen Sie uns",
+    "followUs": "Folgen Sie Uns",
     "newsletter": "Newsletter",
     "newsletterDesc": "Abonnieren Sie für Sonderangebote und Angeltipps",
     "subscribe": "Abonnieren",
     "rights": "Alle Rechte vorbehalten."
   },
   "common": {
-    "loading": "Wird geladen...",
+    "loading": "Laden...",
     "error": "Fehler",
     "success": "Erfolg",
     "cancel": "Abbrechen",
@@ -155,8 +155,8 @@
     "open": "Öffnen",
     "yes": "Ja",
     "no": "Nein",
-    "readMore": "Mehr lesen",
-    "showLess": "Weniger anzeigen",
+    "readMore": "Mehr Lesen",
+    "showLess": "Weniger Anzeigen",
     "hours": "Stunden"
   }
 }
