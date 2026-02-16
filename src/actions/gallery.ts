@@ -3,11 +3,28 @@
 import { prisma } from '@/lib/db';
 import { GalleryImage } from '@/types';
 
-export async function getGalleryImages(category?: string): Promise<GalleryImage[]> {
-  const where: { isActive: boolean; category?: string } = { isActive: true };
+export async function getGalleryImages(
+  category?: string,
+  search?: string
+): Promise<GalleryImage[]> {
+  const where: { 
+    isActive: boolean; 
+    category?: string;
+    OR?: Array<{
+      title?: { contains: string; mode: 'insensitive' };
+      description?: { contains: string; mode: 'insensitive' };
+    }>;
+  } = { isActive: true };
   
   if (category && category !== 'all') {
     where.category = category;
+  }
+
+  if (search && search.trim() !== '') {
+    where.OR = [
+      { title: { contains: search, mode: 'insensitive' } },
+      { description: { contains: search, mode: 'insensitive' } },
+    ];
   }
 
   return await prisma.galleryImage.findMany({
@@ -23,5 +40,5 @@ export async function getGalleryCategories(): Promise<string[]> {
     distinct: ['category'],
   });
 
-  return categories.map(c => c.category);
+  return categories.map((c: { category: string }) => c.category);
 }

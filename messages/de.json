@@ -88,7 +88,10 @@
     "boat": "Das Boot",
     "scenery": "Landschaft",
     "guests": "Unsere Gäste",
-    "all": "Alle"
+    "all": "Alle",
+    "search": "Bilder suchen...",
+    "noImages": "Keine Bilder gefunden.",
+    "clearFilters": "Filter zurücksetzen"
   },
   "testimonials": {
     "title": "Was unsere Gäste sagen",
@@ -96,7 +99,17 @@
     "verified": "Verifizierte Buchung",
     "writeReview": "Bewertung schreiben",
     "rating": "Bewertung",
-    "submit": "Bewertung absenden"
+    "submit": "Bewertung absenden",
+    "trip": "Tour",
+    "selectTrip": "Tour auswählen",
+    "selectTripPlaceholder": "Wählen Sie eine Tour",
+    "namePlaceholder": "Ihr Name",
+    "comment": "Ihre Bewertung",
+    "commentPlaceholder": "Teilen Sie Ihre Erfahrung...",
+    "moderationNotice": "Bewertungen werden vor der Veröffentlichung geprüft.",
+    "submitSuccess": "Bewertung erfolgreich eingereicht!",
+    "submitError": "Fehler beim Einreichen. Bitte versuchen Sie es erneut.",
+    "noReviews": "Noch keine Bewertungen. Seien Sie der Erste!"
   },
   "about": {
     "title": "Über uns",
@@ -117,7 +130,9 @@
     "trips": "Touren & Erlebnis",
     "safety": "Sicherheit & Ausrüstung",
     "weather": "Wetter & Stornierungen",
-    "contact": "Noch Fragen? Kontaktieren Sie uns"
+    "contact": "Noch Fragen? Kontaktieren Sie uns",
+    "searchPlaceholder": "Suchen Sie nach Antworten...",
+    "noResults": "Keine Fragen gefunden."
   },
   "contact": {
     "title": "Kontakt",
