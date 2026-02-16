@@ -20,7 +20,7 @@ import { Trip, AddOn, BookingFormData } from "@/types";
 import { bookingSchema } from "@/lib/validations";
 import { formatPrice, calculateDiscount } from "@/lib/utils";
 import { getTrips } from "@/actions/trips";
-import { getAddOns, createBooking, validateVoucher } from "@/actions/bookings";
+import { getAddOns, createBookingWithPayment, validateVoucher } from "@/actions/bookings";
 import { toast } from "sonner";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
@@ -133,14 +133,21 @@ export default function BookingPage() {
 
     setIsSubmitting(true);
     try {
-      const booking = await createBooking({
+      const { booking, paymentUrl } = await createBookingWithPayment({
         ...data,
         date: selectedDate!,
         addOns: selectedAddOns,
       });
+      
       toast.success(t("booking.success"));
-      // Redirect to payment or success page
-      window.location.href = `/booking/success?id=${booking.id}`;
+      
+      // If we have a Stripe payment URL, redirect to it
+      if (paymentUrl) {
+        window.location.href = paymentUrl;
+      } else {
+        // Otherwise go to success page
+        window.location.href = `/${locale}/booking/success?id=${booking.id}`;
+      }
     } catch (error) {
       toast.error(t("booking.error"));
     } finally {

@@ -28,6 +28,9 @@ export function Navbar() {
     { href: `/${locale}/contact`, label: t("navigation.contact") },
   ];
 
+  // Admin link (shown in both mobile and desktop)
+  const adminItem = { href: `/${locale}/admin`, label: t("navigation.admin") };
+
   const isActive = (href: string) => {
     return pathname === href || pathname.startsWith(`${href}/`);
   };
@@ -79,6 +82,12 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <LanguageSwitcher />
             
+            <Link href={adminItem.href} className="hidden lg:block">
+              <Button variant="ghost" className="text-slate-600">
+                {adminItem.label}
+              </Button>
+            </Link>
+            
             <Link href={`/${locale}/booking`} className="hidden sm:block">
               <Button className="bg-blue-900 hover:bg-blue-800">
                 {t("navigation.bookNow")}
@@ -113,6 +122,13 @@ export function Navbar() {
                       {t("navigation.bookNow")}
                     </Button>
                   </Link>
+                  <div className="border-t pt-4 mt-2">
+                    <Link href={adminItem.href} onClick={() => setIsOpen(false)}>
+                      <Button variant="ghost" className="w-full justify-start text-slate-500">
+                        {adminItem.label}
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>

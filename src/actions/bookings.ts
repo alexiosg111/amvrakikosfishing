@@ -4,6 +4,8 @@ import { prisma } from '@/lib/db';
 import { BookingFormData } from '@/lib/validations';
 import { Booking, AddOn } from '@/types';
 import { revalidatePath } from 'next/cache';
+import { sendBookingConfirmation } from '@/lib/email';
+import { createPaymentSession } from './payments';
 
 export async function createBooking(data: BookingFormData): Promise<Booking> {
   // Calculate total price
@@ -116,6 +118,22 @@ export async function createBooking(data: BookingFormData): Promise<Booking> {
   revalidatePath('/trips');
   revalidatePath('/admin');
 
+  // Send confirmation email
+  try {
+    await sendBookingConfirmation({
+      to: data.contactEmail,
+      bookingId: booking.id,
+      tripName: trip.name,
+      date: data.date,
+      participants: data.participants,
+      totalPrice,
+      name: data.contactName,
+    });
+  } catch (error) {
+    console.error('Failed to send confirmation email:', error);
+    // Don't throw - booking is still created
+  }
+
   return {
     ...booking,
     bookingAddOns: booking.bookingAddOns.map(ba => ({
@@ -126,6 +144,29 @@ export async function createBooking(data: BookingFormData): Promise<Booking> {
       } : undefined,
     })),
   };
+}
+
+export async function createBookingWithPayment(data: BookingFormData & { skipPayment?: boolean }): Promise<{ booking: Booking; paymentUrl?: string }> {
+  const booking = await createBooking(data);
+  
+  // If skipPayment is true (for admin/manual bookings), return without Stripe
+  if (data.skipPayment) {
+    return { booking };
+  }
+
+  // Create Stripe checkout session
+  try {
+    const { url } = await createPaymentSession({
+      bookingId: booking.id,
+      email: data.contactEmail,
+    });
+
+    return { booking, paymentUrl: url || undefined };
+  } catch (error) {
+    console.error('Failed to create payment session:', error);
+    // Return booking even if payment creation fails
+    return { booking };
+  }
 }
 
 export async function getBookingById(id: string): Promise<Booking | null> {
