@@ -38,6 +38,7 @@ export default function BookingPage() {
   const [selectedTrip, setSelectedTrip] = useState<Trip | null>(null);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
   const [selectedAddOns, setSelectedAddOns] = useState<{ addOnId: string; quantity: number }[]>([]);
+  const [appliedVoucherCode, setAppliedVoucherCode] = useState<string | undefined>();
   const [voucherDiscount, setVoucherDiscount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -116,13 +117,12 @@ export default function BookingPage() {
   };
 
   const handleVoucherApply = async (code: string) => {
-    const result = await validateVoucher(code, calculateTotal() + voucherDiscount);
+    const result = await validateVoucher(code, calculateTotal());
     if (result.valid) {
       setVoucherDiscount(result.discount);
-      toast.success(result.message);
-    } else {
-      toast.error(result.message);
+      setAppliedVoucherCode(code);
     }
+    return result;
   };
 
   const onSubmit = async (data: BookingFormData) => {
@@ -137,6 +137,7 @@ export default function BookingPage() {
         ...data,
         date: selectedDate!,
         addOns: selectedAddOns,
+        voucherCode: appliedVoucherCode,
       });
       toast.success(t("booking.success"));
       // Redirect to payment or success page
@@ -271,6 +272,7 @@ export default function BookingPage() {
                       addOns={addOns}
                       selectedAddOns={selectedAddOns}
                       onToggle={handleAddOnToggle}
+                      tripType={selectedTrip?.name}
                     />
                   </motion.div>
                 )}

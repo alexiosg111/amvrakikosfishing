@@ -4,6 +4,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
 model Trip {
@@ -19,65 +20,48 @@ model Trip {
   isActive        Boolean      @default(true)
   createdAt       DateTime     @default(now())
   updatedAt       DateTime     @updatedAt
-  
+
   bookings        Booking[]
   availabilities  Availability[]
   reviews         Review[]
-  
+
   @@index([isActive, isPremium])
 }
 
-enum BookingStatus {
-  PENDING
-  CONFIRMED
-  PAID
-  CANCELLED
-  COMPLETED
-}
-
 model Booking {
-  id              String        @id @default(cuid())
+  id              String   @id @default(cuid())
   tripId          String
   date            DateTime
   participants    Int
   totalPrice      Int
-  status          BookingStatus @default(PENDING)
+  status          String   @default("PENDING")
   contactEmail    String
   contactPhone    String
   contactName     String
   notes           String?
-  createdAt       DateTime      @default(now())
-  updatedAt       DateTime      @updatedAt
-  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
   trip            Trip          @relation(fields: [tripId], references: [id])
   bookingAddOns   BookingAddOn[]
   payment         Payment?
-  
+
   @@index([status])
   @@index([tripId, date])
 }
 
 model AddOn {
-  id              String         @id @default(cuid())
+  id              String   @id @default(cuid())
   name            String
   description     String
   price           Int
-  category        AddOnCategory  @default(GENERAL)
-  isActive        Boolean        @default(true)
+  category        String   @default("GENERAL")
+  isActive        Boolean  @default(true)
   imageUrl        String?
-  createdAt       DateTime       @default(now())
-  updatedAt       DateTime       @updatedAt
-  
-  bookingAddOns   BookingAddOn[]
-}
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 
-enum AddOnCategory {
-  GENERAL
-  FOOD
-  TRANSPORT
-  EQUIPMENT
-  PHOTO
-  PREMIUM
+  bookingAddOns   BookingAddOn[]
 }
 
 model BookingAddOn {

@@ -8,8 +8,8 @@ export interface Trip {
   duration: string;
   basePrice: number;
   maxParticipants: number;
-  images: string[];
-  highlights: string[];
+  images: string[] | string;
+  highlights: string[] | string;
   isPremium: boolean;
   isActive: boolean;
   createdAt: Date;
@@ -39,9 +39,9 @@ export interface AddOn {
   name: string;
   description: string;
   price: number;
-  category: AddOnCategory;
+  category: AddOnCategory | string;
   isActive: boolean;
-  imageUrl?: string;
+  imageUrl?: string | null;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -92,7 +92,7 @@ export interface Payment {
 export interface GalleryImage {
   id: string;
   title: string;
-  description?: string;
+  description?: string | null;
   imageUrl: string;
   category: 'catches' | 'boat' | 'scenery' | 'guests';
   isActive: boolean;
@@ -103,7 +103,7 @@ export interface ContactMessage {
   id: string;
   name: string;
   email: string;
-  phone?: string;
+  phone?: string | null;
   message: string;
   status: string;
   createdAt: Date;
@@ -116,3 +116,16 @@ export interface Availability {
   date: Date;
   availableSpots: number;
 }
+
+export interface BookingFormData {
+  tripId: string;
+  date: Date;
+  participants: number;
+  contactName: string;
+  contactEmail: string;
+  contactPhone: string;
+  notes?: string;
+  addOns?: Array<{ addOnId: string; quantity: number }>;
+  voucherCode?: string;
+}
+
