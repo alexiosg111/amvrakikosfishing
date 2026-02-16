@@ -5,9 +5,12 @@ import { Anchor, Mail, Phone, MapPin, Facebook, Instagram, Youtube } from "lucid
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { usePathname } from "next/navigation";
 
 export function Footer() {
   const t = useTranslations();
+  const pathname = usePathname();
+  const locale = pathname.split("/")[1] || "en";
   const currentYear = new Date().getFullYear();
 
   return (
@@ -16,7 +19,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-2 mb-4">
+            <Link href={`/${locale}`} className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
                 <Anchor className="w-5 h-5 text-white" />
               </div>
@@ -43,27 +46,27 @@ export function Footer() {
             <h3 className="font-semibold text-lg mb-4">{t("footer.quickLinks")}</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="/trips" className="text-slate-400 hover:text-white transition-colors">
+                <Link href={`/${locale}/trips`} className="text-slate-400 hover:text-white transition-colors">
                   {t("navigation.trips")}
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-slate-400 hover:text-white transition-colors">
+                <Link href={`/${locale}/about`} className="text-slate-400 hover:text-white transition-colors">
                   {t("navigation.about")}
                 </Link>
               </li>
               <li>
-                <Link href="/gallery" className="text-slate-400 hover:text-white transition-colors">
+                <Link href={`/${locale}/gallery`} className="text-slate-400 hover:text-white transition-colors">
                   {t("navigation.gallery")}
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-slate-400 hover:text-white transition-colors">
+                <Link href={`/${locale}/faq`} className="text-slate-400 hover:text-white transition-colors">
                   {t("navigation.faq")}
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-slate-400 hover:text-white transition-colors">
+                <Link href={`/${locale}/contact`} className="text-slate-400 hover:text-white transition-colors">
                   {t("navigation.contact")}
                 </Link>
               </li>
@@ -116,10 +119,10 @@ export function Footer() {
             © {currentYear} Amvrakikos Fishing Trips. {t("footer.rights")}
           </p>
           <div className="flex gap-6 text-sm text-slate-400">
-            <Link href="/privacy" className="hover:text-white transition-colors">
+            <Link href={`/${locale}/privacy`} className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="hover:text-white transition-colors">
+            <Link href={`/${locale}/terms`} className="hover:text-white transition-colors">
               Terms of Service
             </Link>
           </div>

@@ -9,7 +9,7 @@ export async function createReview(data: ReviewFormData): Promise<Review> {
   const review = await prisma.review.create({
     data: {
       tripId: data.tripId,
-      userName: data.userName,
+      userId: data.userId,
       rating: data.rating,
       comment: data.comment,
       isVerified: false, // Requires manual verification
@@ -22,11 +22,14 @@ export async function createReview(data: ReviewFormData): Promise<Review> {
   return review;
 }
 
-export async function getReviews(): Promise<Review[]> {
+export async function getReviews(tripId?: string): Promise<Review[]> {
   return await prisma.review.findMany({
-    where: { isVerified: true },
+    where: {
+      isVerified: true,
+      ...(tripId ? { tripId } : {}),
+    },
     orderBy: { createdAt: 'desc' },
-    take: 20,
+    take: 50,
     include: {
       trip: true,
     },

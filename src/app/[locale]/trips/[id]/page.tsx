@@ -139,11 +139,11 @@ export default async function TripPage({ params }: TripPageProps) {
                           <div className="flex items-center gap-3">
                             <Avatar>
                               <AvatarFallback className="bg-blue-600 text-white">
-                                {review.userName.charAt(0).toUpperCase()}
+                                {review.userId.charAt(0).toUpperCase()}
                               </AvatarFallback>
                             </Avatar>
                             <div>
-                              <p className="font-semibold">{review.userName}</p>
+                              <p className="font-semibold">{review.userId}</p>
                               <p className="text-sm text-slate-500">
                                 {new Date(review.createdAt).toLocaleDateString()}
                               </p>
@@ -162,7 +162,7 @@ export default async function TripPage({ params }: TripPageProps) {
                             ))}
                           </div>
                         </div>
-                        <p className="text-slate-700">{review.comment}</p>
+                        <p className="text-slate-700">{review.comment || t("testimonials.noComment")}</p>
                       </div>
                     ))}
                   </div>
@@ -197,7 +197,7 @@ export default async function TripPage({ params }: TripPageProps) {
                 </div>
               </div>
 
-              <Link href={`/booking?trip=${trip.id}`}>
+              <Link href={`/${params.locale}/booking?trip=${trip.id}`}>
                 <Button className="w-full bg-blue-900 hover:bg-blue-800 py-6 text-lg">
                   {t("trips.bookNow")}
                 </Button>

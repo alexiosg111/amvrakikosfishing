@@ -87,8 +87,9 @@
     "catches": "Fänge",
     "boat": "Das Boot",
     "scenery": "Landschaft",
-    "guests": "Unsere Gäste",
-    "all": "Alle"
+    "all": "Alle",
+    "searchPlaceholder": "Galerie durchsuchen",
+    "empty": "Keine passenden Bilder gefunden."
   },
   "testimonials": {
     "title": "Was unsere Gäste sagen",
@@ -96,7 +97,23 @@
     "verified": "Verifizierte Buchung",
     "writeReview": "Bewertung schreiben",
     "rating": "Bewertung",
-    "submit": "Bewertung absenden"
+    "submit": "Bewertung absenden",
+    "trip": "Tourtyp",
+    "selectTrip": "Tour auswählen",
+    "name": "Ihr Name",
+    "namePlaceholder": "Geben Sie Ihren Namen ein",
+    "comment": "Ihre Bewertung",
+    "commentPlaceholder": "Teilen Sie Details zu Ihrem Erlebnis",
+    "filterTrip": "Nach Tour filtern",
+    "allTrips": "Alle Touren",
+    "sortBy": "Sortieren nach",
+    "sortRecent": "Neueste",
+    "sortRating": "Beste Bewertung",
+    "results": "{count} Bewertungen",
+    "formSubtitle": "Erzählen Sie zukünftigen Gästen, was Ihre Tour besonders gemacht hat.",
+    "formSuccess": "Danke für Ihre Bewertung! Sie erscheint nach der Verifizierung.",
+    "formError": "Bewertung konnte nicht gesendet werden. Bitte versuchen Sie es erneut.",
+    "noComment": "Ein wunderbares Erlebnis auf dem Wasser."
   },
   "about": {
     "title": "Über uns",
@@ -108,16 +125,64 @@
     "safety": "Sicherheit an erster Stelle",
     "safetyDesc": "Ihre Sicherheit hat Priorität. Wir halten die höchsten Sicherheitsstandards mit zertifizierter Ausrüstung und regelmäßigen Inspektionen ein.",
     "experience": "Erfahrung zählt",
-    "experienceDesc": "Wir haben Tausende von Gästen aus aller Welt beherbergt und sind stolz darauf, unvergessliche Angelabenteuer zu kreieren."
+    "experienceDesc": "Wir haben Tausende von Gästen aus aller Welt beherbergt und sind stolz darauf, unvergessliche Angelabenteuer zu kreieren.",
+    "mission": "Unsere Mission ist es, die Kultur und Schönheit der Amvrakikos-Bucht zu teilen und sichere, persönliche Angeltouren anzubieten.",
+    "team": "Unser Team",
+    "teamDesc": "Ein engagiertes Team lokaler Experten, das jede Tour besonders macht.",
+    "history": "Unsere Geschichte",
+    "historyDesc": "Seit 2005 als Familienprojekt gegründet, ist Amvrakikos Fishing Trips heute eine vertrauenswürdige Adresse für authentische Küstenerlebnisse.",
+    "missionTitle": "Unsere Mission",
+    "missionDetail": "Unvergessliche Tage auf dem Wasser mit maßgeschneiderten Touren, frischem Fang und echter griechischer Gastfreundschaft.",
+    "values": "Unsere Werte",
+    "valuesDesc": "Respekt für das Meer, nachhaltige Fischerei und herzliche Gastfreundschaft prägen alles, was wir tun."
   },
   "faq": {
     "title": "Häufig gestellte Fragen",
     "subtitle": "Finden Sie Antworten auf häufige Fragen zu unseren Angeltouren",
-    "booking": "Buchung & Bezahlung",
-    "trips": "Touren & Erlebnis",
-    "safety": "Sicherheit & Ausrüstung",
-    "weather": "Wetter & Stornierungen",
-    "contact": "Noch Fragen? Kontaktieren Sie uns"
+    "booking": "Buchung",
+    "trips": "Touren",
+    "safety": "Sicherheit",
+    "payment": "Zahlung",
+    "all": "Alle",
+    "searchPlaceholder": "Fragen durchsuchen",
+    "empty": "Keine passenden Fragen gefunden.",
+    "contact": "Noch Fragen? Kontaktieren Sie uns",
+    "contactTitle": "Weitere Hilfe nötig?",
+    "contactCta": "Kontakt aufnehmen",
+    "items": {
+      "booking1": {
+        "question": "Wie früh sollte ich buchen?",
+        "answer": "Wir empfehlen, mindestens eine Woche im Voraus zu buchen, besonders im Sommer."
+      },
+      "booking2": {
+        "question": "Kann ich meine Tour verschieben?",
+        "answer": "Ja. Informieren Sie uns mindestens 48 Stunden vorher und wir finden einen neuen Termin."
+      },
+      "trips1": {
+        "question": "Brauche ich Angelerfahrung?",
+        "answer": "Nein. Unser Team erklärt alles vom Auswerfen bis zum Einholen."
+      },
+      "trips2": {
+        "question": "Was sollte ich mitbringen?",
+        "answer": "Sonnenschutz, eine Kappe und eine leichte Jacke. Ausrüstung und Getränke sind inklusive."
+      },
+      "safety1": {
+        "question": "Ist das Boot familienfreundlich?",
+        "answer": "Ja. Wir haben Schwimmwesten für alle Größen und sichere Abläufe für Familien."
+      },
+      "safety2": {
+        "question": "Welche Sicherheitsausrüstung ist an Bord?",
+        "answer": "GPS, Funkgerät, Rettungsinseln, Erste-Hilfe-Set und Notfallbojen sind vorhanden."
+      },
+      "payment1": {
+        "question": "Welche Zahlungsmethoden akzeptieren Sie?",
+        "answer": "Wir akzeptieren Kreditkarten, Überweisungen und Barzahlung vor Ort."
+      },
+      "payment2": {
+        "question": "Ist eine Anzahlung erforderlich?",
+        "answer": "Eine kleine Anzahlung bestätigt Ihre Buchung, der Restbetrag ist vor Abfahrt fällig."
+      }
+    }
   },
   "contact": {
     "title": "Kontakt",

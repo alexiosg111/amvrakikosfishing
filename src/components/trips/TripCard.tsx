@@ -10,6 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Trip } from "@/types";
 import { formatPrice } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 interface TripCardProps {
   trip: Trip;
@@ -17,6 +18,8 @@ interface TripCardProps {
 
 export function TripCard({ trip }: TripCardProps) {
   const t = useTranslations();
+  const pathname = usePathname();
+  const locale = pathname.split("/")[1] || "en";
   const imageUrl = trip.images[0] || "https://placehold.co/600x400/1a365d/white?text=Fishing+Trip";
 
   return (
@@ -78,12 +81,12 @@ export function TripCard({ trip }: TripCardProps) {
         </CardContent>
 
         <CardFooter className="p-6 pt-0 gap-3">
-          <Link href={`/trips/${trip.id}`} className="flex-1">
+          <Link href={`/${locale}/trips/${trip.id}`} className="flex-1">
             <Button variant="outline" className="w-full">
               {t("trips.learnMore")}
             </Button>
           </Link>
-          <Link href={`/booking?trip=${trip.id}`} className="flex-1">
+          <Link href={`/${locale}/booking?trip=${trip.id}`} className="flex-1">
             <Button className="w-full bg-blue-900 hover:bg-blue-800">
               {t("trips.bookNow")}
             </Button>

@@ -6,9 +6,12 @@ import { Anchor, Shield, Award } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export function AboutPreview() {
   const t = useTranslations();
+  const pathname = usePathname();
+  const locale = pathname.split("/")[1] || "en";
 
   return (
     <section className="py-20 bg-slate-50">
@@ -71,7 +74,7 @@ export function AboutPreview() {
               </motion.div>
             </div>
 
-            <Link href="/about">
+            <Link href={`/${locale}/about`}>
               <Button className="bg-blue-900 hover:bg-blue-800">
                 {t("about.title")}
               </Button>
