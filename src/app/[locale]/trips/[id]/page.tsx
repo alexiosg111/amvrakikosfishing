@@ -1,14 +1,15 @@
-import { getTripById, getTripReviews } from "@/actions/trips";
+import { getTripById, getTripReviews, getTrips } from "@/actions/trips";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { TripRecommendation } from "@/components/crosssell/TripRecommendation";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import Image from "next/image";
-import { Clock, Users, Check, Star, MapPin, Calendar } from "lucide-react";
+import { Clock, Users, Check, Star, MapPin, Calendar, Crown } from "lucide-react";
 import { formatPrice } from "@/lib/utils";
 
 interface TripPageProps {
@@ -28,6 +29,7 @@ export async function generateMetadata({ params }: TripPageProps) {
 export default async function TripPage({ params }: TripPageProps) {
   const trip = await getTripById(params.id);
   const reviews = await getTripReviews(params.id);
+  const allTrips = await getTrips();
   const t = await getTranslations();
 
   if (!trip) {
@@ -186,6 +188,20 @@ export default async function TripPage({ params }: TripPageProps) {
                 <p className="text-sm text-slate-500">{t("trips.perPerson")}</p>
               </div>
 
+              {trip.isPremium && (
+                <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-lg p-4 mb-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Crown className="w-4 h-4 text-amber-600" />
+                    <span className="font-semibold text-amber-900 text-sm">Premium Experience</span>
+                  </div>
+                  <div className="space-y-1 text-xs text-slate-700">
+                    <p>✓ Premium equipment included</p>
+                    <p>✓ Photo package included</p>
+                    <p>✓ Exclusive perks</p>
+                  </div>
+                </div>
+              )}
+
               <div className="space-y-4 mb-6">
                 <div className="flex justify-between text-sm">
                   <span className="text-slate-600">Duration</span>
@@ -208,6 +224,12 @@ export default async function TripPage({ params }: TripPageProps) {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Cross-sell Section */}
+        <div className="mt-20">
+          <Separator className="mb-16" />
+          <TripRecommendation currentTrip={trip} allTrips={allTrips} />
         </div>
       </div>
     </div>
