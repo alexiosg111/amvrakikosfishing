@@ -187,7 +187,7 @@ async function main() {
   const trips = await prisma.trip.findMany();
   const tripMap = new Map(trips.map(t => [t.name, t.id]));
 
-  // Create sample reviews
+  // Create sample reviews with varied ratings
   const reviewsData = [
     {
       tripId: tripMap.get('Half Day Fishing Adventure') || '',
@@ -222,6 +222,55 @@ async function main() {
       userName: 'The Johnson Family',
       rating: 5,
       comment: 'We chartered the boat for a family reunion and it was absolutely perfect. Everything was taken care of and we had an incredible day.',
+      isVerified: true,
+    },
+    {
+      tripId: tripMap.get('Night Fishing Adventure') || '',
+      userName: 'Alex Chen',
+      rating: 4,
+      comment: 'Unique experience fishing under the stars. The bioluminescence was magical. Fishing was a bit slow but the atmosphere made up for it.',
+      isVerified: true,
+    },
+    {
+      tripId: tripMap.get('Full Day Deep Sea Expedition') || '',
+      userName: 'Emma Wilson',
+      rating: 3,
+      comment: 'Good trip overall but we had some rough seas in the afternoon. Captain was professional and safety was prioritized. Would try a calmer day next time.',
+      isVerified: true,
+    },
+    {
+      tripId: tripMap.get('Sunset Fishing & Dinner Cruise') || '',
+      userName: 'Marco Rossi',
+      rating: 5,
+      comment: 'Bellissimo! The Greek hospitality was incredible. Fresh seafood dinner was the best I\'ve ever had. Grazie Captain Nikos!',
+      isVerified: true,
+    },
+    {
+      tripId: tripMap.get('Half Day Fishing Adventure') || '',
+      userName: 'Sophie Laurent',
+      rating: 4,
+      comment: 'Beautiful scenery and a peaceful morning on the water. Caught a nice variety of fish. Perfect for a relaxing half day activity.',
+      isVerified: true,
+    },
+    {
+      tripId: tripMap.get('Private Charter Experience') || '',
+      userName: 'Robert & Team',
+      rating: 5,
+      comment: 'Corporate team building event that exceeded all expectations. Captain Nikos tailored the experience perfectly for our group. Highly professional.',
+      isVerified: true,
+    },
+    {
+      tripId: tripMap.get('Night Fishing Adventure') || '',
+      userName: 'Lisa Thompson',
+      rating: 5,
+      comment: 'Absolutely thrilling! Caught the biggest fish of my life. The specialized night equipment was impressive. Will definitely do this again!',
+      isVerified: true,
+    },
+    {
+      tripId: tripMap.get('Half Day Fishing Adventure') || '',
+      userName: 'Michael Brown',
+      rating: 2,
+      comment: 'Weather was not great and fish weren\'t biting much. Captain tried different spots but it just wasn\'t our day. Maybe better luck next time.',
       isVerified: true,
     },
   ];
@@ -263,6 +312,62 @@ async function main() {
       title: 'Happy Anglers',
       description: 'A family enjoying their fishing adventure',
       imageUrl: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&q=80',
+      category: 'guests',
+      isActive: true,
+    },
+    {
+      title: 'Trophy Red Snapper',
+      description: 'An impressive red snapper caught on our deep sea expedition',
+      imageUrl: 'https://images.unsplash.com/photo-1516575334481-f85287c2c82d?auto=format&fit=crop&q=80',
+      category: 'catches',
+      isActive: true,
+    },
+    {
+      title: 'Fishing Equipment',
+      description: 'Top-of-the-line fishing rods and reels for our guests',
+      imageUrl: 'https://images.unsplash.com/photo-1516967124798-10656f7dca28?auto=format&fit=crop&q=80',
+      category: 'boat',
+      isActive: true,
+    },
+    {
+      title: 'Golden Hour',
+      description: 'Beautiful sunset colors reflecting on calm waters',
+      imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80',
+      category: 'scenery',
+      isActive: true,
+    },
+    {
+      title: 'Morning Group',
+      description: 'A group of friends ready for their fishing adventure',
+      imageUrl: 'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&q=80',
+      category: 'guests',
+      isActive: true,
+    },
+    {
+      title: 'Fresh Catch Variety',
+      description: 'A diverse catch from a successful day on the water',
+      imageUrl: 'https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&q=80',
+      category: 'catches',
+      isActive: true,
+    },
+    {
+      title: 'Navigation Station',
+      description: 'Modern GPS and fish finder equipment',
+      imageUrl: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&q=80',
+      category: 'boat',
+      isActive: true,
+    },
+    {
+      title: 'Coastal Mountains',
+      description: 'The dramatic coastline surrounding Amvrakikos Bay',
+      imageUrl: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80',
+      category: 'scenery',
+      isActive: true,
+    },
+    {
+      title: 'Kids First Catch',
+      description: 'Young angler with their first fish',
+      imageUrl: 'https://images.unsplash.com/photo-1605218427368-35b0168dc3e6?auto=format&fit=crop&q=80',
       category: 'guests',
       isActive: true,
     },

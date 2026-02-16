@@ -88,7 +88,10 @@
     "boat": "The Boat",
     "scenery": "Scenery",
     "guests": "Our Guests",
-    "all": "All"
+    "all": "All",
+    "search": "Search images...",
+    "noImages": "No images found matching your criteria.",
+    "clearFilters": "Clear Filters"
   },
   "testimonials": {
     "title": "What Our Guests Say",
@@ -96,7 +99,17 @@
     "verified": "Verified Booking",
     "writeReview": "Write a Review",
     "rating": "Rating",
-    "submit": "Submit Review"
+    "submit": "Submit Review",
+    "trip": "Trip",
+    "selectTrip": "Select Trip",
+    "selectTripPlaceholder": "Choose a trip",
+    "namePlaceholder": "Your name",
+    "comment": "Your Review",
+    "commentPlaceholder": "Share your experience...",
+    "moderationNotice": "Reviews are moderated before being published.",
+    "submitSuccess": "Review submitted successfully!",
+    "submitError": "Failed to submit review. Please try again.",
+    "noReviews": "No reviews yet. Be the first to share your experience!"
   },
   "about": {
     "title": "About Us",
@@ -117,7 +130,9 @@
     "trips": "Trips & Experience",
     "safety": "Safety & Equipment",
     "weather": "Weather & Cancellations",
-    "contact": "Still have questions? Contact us"
+    "contact": "Still have questions? Contact us",
+    "searchPlaceholder": "Search frequently asked questions...",
+    "noResults": "No questions found matching your search."
   },
   "contact": {
     "title": "Contact Us",
