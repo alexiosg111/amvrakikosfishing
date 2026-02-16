@@ -104,10 +104,10 @@ model Availability {
 
 model Review {
   id          String   @id @default(cuid())
+  userId      String
   tripId      String
-  userName    String
   rating      Int
-  comment     String
+  comment     String?
   isVerified  Boolean  @default(false)
   createdAt   DateTime @default(now())
   

@@ -7,6 +7,7 @@ import { Star, Quote } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { usePathname } from "next/navigation";
 
 interface TestimonialsPreviewProps {
   reviews: Review[];
@@ -14,6 +15,8 @@ interface TestimonialsPreviewProps {
 
 export function TestimonialsPreview({ reviews }: TestimonialsPreviewProps) {
   const t = useTranslations();
+  const pathname = usePathname();
+  const locale = pathname.split("/")[1] || "en";
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -81,17 +84,17 @@ export function TestimonialsPreview({ reviews }: TestimonialsPreviewProps) {
               </div>
 
               <p className="text-blue-100 mb-6 line-clamp-4">
-                &ldquo;{review.comment}&rdquo;
+                &ldquo;{review.comment || t("testimonials.noComment")}&rdquo;
               </p>
 
               <div className="flex items-center gap-3">
                 <Avatar>
                   <AvatarFallback className="bg-amber-500 text-white">
-                    {review.userName.charAt(0).toUpperCase()}
+                    {review.userId.charAt(0).toUpperCase()}
                   </AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="font-semibold">{review.userName}</p>
+                  <p className="font-semibold">{review.userId}</p>
                   {review.isVerified && (
                     <p className="text-xs text-blue-300">
                       {t("testimonials.verified")}
@@ -110,7 +113,7 @@ export function TestimonialsPreview({ reviews }: TestimonialsPreviewProps) {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-12"
         >
-          <Link href="/testimonials">
+          <Link href={`/${locale}/testimonials`}>
             <Button 
               variant="outline" 
               className="border-white text-white hover:bg-white hover:text-blue-900"

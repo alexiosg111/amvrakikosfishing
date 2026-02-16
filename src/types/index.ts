@@ -57,11 +57,11 @@ export interface BookingAddOn {
 
 export interface Review {
   id: string;
+  userId: string;
   tripId: string;
   trip?: Trip;
-  userName: string;
   rating: number;
-  comment: string;
+  comment?: string | null;
   isVerified: boolean;
   createdAt: Date;
 }
@@ -92,9 +92,9 @@ export interface Payment {
 export interface GalleryImage {
   id: string;
   title: string;
-  description?: string;
+  description?: string | null;
   imageUrl: string;
-  category: 'catches' | 'boat' | 'scenery' | 'guests';
+  category: 'catches' | 'boat' | 'scenery';
   isActive: boolean;
   createdAt: Date;
 }

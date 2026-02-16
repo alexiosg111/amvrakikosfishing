@@ -87,8 +87,9 @@
     "catches": "Catches",
     "boat": "The Boat",
     "scenery": "Scenery",
-    "guests": "Our Guests",
-    "all": "All"
+    "all": "All",
+    "searchPlaceholder": "Search gallery",
+    "empty": "No images match your search yet."
   },
   "testimonials": {
     "title": "What Our Guests Say",
@@ -96,7 +97,23 @@
     "verified": "Verified Booking",
     "writeReview": "Write a Review",
     "rating": "Rating",
-    "submit": "Submit Review"
+    "submit": "Submit Review",
+    "trip": "Trip Type",
+    "selectTrip": "Select a trip",
+    "name": "Your Name",
+    "namePlaceholder": "Enter your name",
+    "comment": "Your Review",
+    "commentPlaceholder": "Share details about your experience",
+    "filterTrip": "Filter by trip",
+    "allTrips": "All trips",
+    "sortBy": "Sort by",
+    "sortRecent": "Most recent",
+    "sortRating": "Highest rating",
+    "results": "{count} reviews",
+    "formSubtitle": "Tell future guests what made your trip special.",
+    "formSuccess": "Thanks for your review! It will appear once verified.",
+    "formError": "Unable to submit your review. Please try again.",
+    "noComment": "A wonderful experience on the water."
   },
   "about": {
     "title": "About Us",
@@ -108,16 +125,64 @@
     "safety": "Safety First",
     "safetyDesc": "Your safety is our priority. We maintain the highest safety standards with certified equipment and regular inspections.",
     "experience": "Experience Matters",
-    "experienceDesc": "We've hosted thousands of guests from around the world and pride ourselves on creating memorable fishing adventures."
+    "experienceDesc": "We've hosted thousands of guests from around the world and pride ourselves on creating memorable fishing adventures.",
+    "mission": "Our mission is to share the culture and beauty of Amvrakikos Bay while delivering exceptional, safe, and personalized fishing trips.",
+    "team": "Meet the Crew",
+    "teamDesc": "A dedicated team of local experts committed to making every trip special.",
+    "history": "Our Story",
+    "historyDesc": "Founded in 2005 as a family passion project, Amvrakikos Fishing Trips has become a trusted name for authentic coastal adventures.",
+    "missionTitle": "Our Mission",
+    "missionDetail": "Create unforgettable days on the water with tailored itineraries, fresh catches, and true Greek hospitality.",
+    "values": "Our Values",
+    "valuesDesc": "Respect for the sea, sustainable fishing practices, and warm hospitality guide everything we do."
   },
   "faq": {
     "title": "Frequently Asked Questions",
     "subtitle": "Find answers to common questions about our fishing trips",
-    "booking": "Booking & Payment",
-    "trips": "Trips & Experience",
-    "safety": "Safety & Equipment",
-    "weather": "Weather & Cancellations",
-    "contact": "Still have questions? Contact us"
+    "booking": "Booking",
+    "trips": "Trips",
+    "safety": "Safety",
+    "payment": "Payment",
+    "all": "All",
+    "searchPlaceholder": "Search questions",
+    "empty": "No matching questions found.",
+    "contact": "Still have questions? Contact us",
+    "contactTitle": "Need more help?",
+    "contactCta": "Contact our team",
+    "items": {
+      "booking1": {
+        "question": "How far in advance should I book?",
+        "answer": "We recommend booking at least a week in advance, especially during summer, to secure your preferred date."
+      },
+      "booking2": {
+        "question": "Can I reschedule my trip?",
+        "answer": "Yes. Let us know at least 48 hours ahead of time and we'll find a new date for you."
+      },
+      "trips1": {
+        "question": "Do I need previous fishing experience?",
+        "answer": "Not at all. Our crew will guide you through everything, from casting to handling your catch."
+      },
+      "trips2": {
+        "question": "What should I bring with me?",
+        "answer": "We suggest sunscreen, a hat, and a light jacket. All fishing equipment and refreshments are provided."
+      },
+      "safety1": {
+        "question": "Is the boat suitable for families?",
+        "answer": "Absolutely. We provide life jackets in all sizes and keep safety briefings kid-friendly."
+      },
+      "safety2": {
+        "question": "What safety equipment is on board?",
+        "answer": "Our boat is equipped with GPS, VHF radio, life rafts, first-aid kits, and emergency beacons."
+      },
+      "payment1": {
+        "question": "Which payment methods are accepted?",
+        "answer": "We accept credit cards, bank transfers, and cash payments on the day of the trip."
+      },
+      "payment2": {
+        "question": "Do you require a deposit?",
+        "answer": "A small deposit is required to confirm your booking, with the remainder due before departure."
+      }
+    }
   },
   "contact": {
     "title": "Contact Us",

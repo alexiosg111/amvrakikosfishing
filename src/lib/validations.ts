@@ -34,9 +34,12 @@ export type VoucherFormData = z.infer<typeof voucherSchema>;
 
 export const reviewSchema = z.object({
   tripId: z.string().min(1, 'Trip is required'),
-  userName: z.string().min(2, 'Name must be at least 2 characters'),
+  userId: z.string().min(2, 'Name must be at least 2 characters'),
   rating: z.number().min(1).max(5, 'Rating must be between 1 and 5'),
-  comment: z.string().min(10, 'Comment must be at least 10 characters'),
+  comment: z.preprocess(
+    (value) => (value === "" ? undefined : value),
+    z.string().min(10, 'Comment must be at least 10 characters').optional()
+  ),
 });
 
 export type ReviewFormData = z.infer<typeof reviewSchema>;
