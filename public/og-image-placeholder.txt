@@ -1,0 +1,11 @@
+This is a placeholder for the OpenGraph image.
+Replace this with an actual 1200x630 JPG or PNG image showing:
+- A fishing boat on Amvrakikos Bay
+- Professional fishing equipment
+- Scenic views of the Greek coastline
+- Or a collage of fishing trip highlights
+
+The image should be named: og-image.jpg
+Recommended size: 1200x630 pixels
+Format: JPG or PNG
+File size: Under 1MB for best performance
