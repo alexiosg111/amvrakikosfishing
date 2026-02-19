@@ -5,11 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { BreadcrumbJsonLd } from "@/components/seo/BreadcrumbJsonLd";
+import { TripProductJsonLd } from "@/components/seo/TripProductJsonLd";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import Image from "next/image";
 import { Clock, Users, Check, Star, MapPin, Calendar } from "lucide-react";
 import { formatPrice } from "@/lib/utils";
+import type { Metadata } from "next";
 
 interface TripPageProps {
   params: {
@@ -18,14 +21,51 @@ interface TripPageProps {
   };
 }
 
-export async function generateMetadata({ params }: TripPageProps) {
+export async function generateMetadata({ params, locale }: TripPageProps & { locale: string }): Promise<Metadata> {
   const trip = await getTripById(params.id);
+  
+  if (!trip) {
+    return {
+      title: 'Trip Not Found',
+    };
+  }
+  
+  const baseUrl = 'https://amvrakikosfishing.com';
+  const canonicalUrl = `${baseUrl}/${locale}/trips/${trip.id}`;
+  const imageUrl = trip.images[0] || `${baseUrl}/og-image.jpg`;
+  const title = `${trip.name} | Amvrakikos Fishing Trips`;
+  
   return {
-    title: trip?.name || "Trip Not Found",
+    title,
+    description: trip.description.substring(0, 160) + (trip.description.length > 160 ? '...' : ''),
+    keywords: `fishing trip, ${trip.name}, Amvrakikos Bay, sea fishing, sport fishing, fishing charter`,
+    openGraph: {
+      title,
+      description: trip.description.substring(0, 160),
+      url: canonicalUrl,
+      type: 'website',
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: trip.name,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: trip.description.substring(0, 160),
+      images: [imageUrl],
+    },
+    alternates: {
+      canonical: canonicalUrl,
+    },
   };
 }
 
-export default async function TripPage({ params }: TripPageProps) {
+export default async function TripPage({ params, locale }: TripPageProps & { locale: string }) {
   const trip = await getTripById(params.id);
   const reviews = await getTripReviews(params.id);
   const t = await getTranslations();
@@ -35,9 +75,17 @@ export default async function TripPage({ params }: TripPageProps) {
   }
 
   const imageUrl = trip.images[0] || "https://placehold.co/1200x600/1a365d/white?text=Fishing+Trip";
+  
+  const breadcrumbItems = [
+    { name: t("trips.title"), href: "/trips" },
+    { name: trip.name, href: `/trips/${trip.id}` },
+  ];
 
   return (
-    <div className="pt-24 pb-20">
+    <>
+      <TripProductJsonLd trip={trip} locale={locale} />
+      <BreadcrumbJsonLd items={breadcrumbItems} locale={locale} />
+      <div className="pt-24 pb-20">
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden mb-12">
@@ -211,5 +259,6 @@ export default async function TripPage({ params }: TripPageProps) {
         </div>
       </div>
     </div>
+    </>
   );
 }
