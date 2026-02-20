@@ -11,18 +11,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Calendar } from "@/components/ui/calendar";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
 import { Stepper } from "@/components/booking/Stepper";
 import { AddOnSelector } from "@/components/addons/AddOnSelector";
 import { VoucherInput } from "@/components/vouchers/VoucherInput";
-import { Trip, AddOn, BookingFormData } from "@/types";
-import { bookingSchema } from "@/lib/validations";
-import { formatPrice, calculateDiscount } from "@/lib/utils";
+import { Trip, AddOn } from "@/types";
+import { bookingSchema, BookingFormData } from "@/lib/validations";
+import { formatPrice } from "@/lib/utils";
 import { getTrips } from "@/actions/trips";
 import { getAddOns, createBooking, validateVoucher } from "@/actions/bookings";
 import { toast } from "sonner";
-import Link from "next/link";
 import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 
 const steps = ["step1", "step2", "step3", "step4"];
@@ -138,8 +136,21 @@ export default function BookingPage() {
         date: selectedDate!,
         addOns: selectedAddOns,
       });
+
+      if (process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
+        const checkoutRes = await fetch("/api/checkout", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ bookingId: booking.id }),
+        });
+        const { url } = await checkoutRes.json();
+        if (url) {
+          window.location.href = url;
+          return;
+        }
+      }
+
       toast.success(t("booking.success"));
-      // Redirect to payment or success page
       window.location.href = `/booking/success?id=${booking.id}`;
     } catch (error) {
       toast.error(t("booking.error"));

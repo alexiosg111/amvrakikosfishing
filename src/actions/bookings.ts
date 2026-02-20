@@ -191,6 +191,33 @@ export async function getAddOns(): Promise<AddOn[]> {
   });
 }
 
+export async function getBookingByEmail(email: string): Promise<Booking[]> {
+  const bookings = await prisma.booking.findMany({
+    where: { contactEmail: email },
+    orderBy: { createdAt: 'desc' },
+    include: {
+      trip: true,
+      bookingAddOns: {
+        include: {
+          addOn: true,
+        },
+      },
+      payment: true,
+    },
+  });
+
+  return bookings.map(booking => ({
+    ...booking,
+    bookingAddOns: booking.bookingAddOns.map(ba => ({
+      ...ba,
+      addOn: ba.addOn ? {
+        ...ba.addOn,
+        price: ba.price,
+      } : undefined,
+    })),
+  }));
+}
+
 export async function validateVoucher(code: string, purchaseAmount: number): Promise<{ valid: boolean; discount: number; message: string }> {
   const voucher = await prisma.voucher.findUnique({
     where: { code: code.toUpperCase(), isActive: true },

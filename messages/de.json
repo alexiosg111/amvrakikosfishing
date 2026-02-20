@@ -38,7 +38,8 @@
     "highlights": "Highlights",
     "includes": "Inklusive",
     "popular": "Beliebt",
-    "bestValue": "Bestes Preis-Leistungs-Verhältnis"
+    "bestValue": "Bestes Preis-Leistungs-Verhältnis",
+    "description": "Tour-Beschreibung"
   },
   "booking": {
     "title": "Buchen Sie Ihre Angeltour",
