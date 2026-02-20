@@ -38,7 +38,8 @@
     "highlights": "Highlights",
     "includes": "Includes",
     "popular": "Most Popular",
-    "bestValue": "Best Value"
+    "bestValue": "Best Value",
+    "description": "Trip Description"
   },
   "booking": {
     "title": "Book Your Fishing Trip",

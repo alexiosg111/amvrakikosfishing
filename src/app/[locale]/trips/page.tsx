@@ -1,7 +1,6 @@
 import { getTrips } from "@/actions/trips";
 import { TripCard } from "@/components/trips/TripCard";
 import { Badge } from "@/components/ui/badge";
-import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({
