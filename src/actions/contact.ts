@@ -1,27 +1,29 @@
 'use server';
 
 import { prisma } from '@/lib/db';
-import { ContactFormData } from '@/lib/validations';
+import { contactFormSchema, ContactFormData } from '@/lib/validations';
 import { sendContactFormNotification } from '@/lib/email';
 import { ContactMessage } from '@/types';
 
 export async function submitContactForm(data: ContactFormData): Promise<ContactMessage> {
+  const validatedData = contactFormSchema.parse(data);
+
   const message = await prisma.contactMessage.create({
     data: {
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      message: data.message,
+      name: validatedData.name,
+      email: validatedData.email,
+      phone: validatedData.phone,
+      message: validatedData.message,
     },
   });
 
   // Send notification email
   try {
     await sendContactFormNotification({
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      message: data.message,
+      name: validatedData.name,
+      email: validatedData.email,
+      phone: validatedData.phone,
+      message: validatedData.message,
     });
   } catch (error) {
     console.error('Failed to send email notification:', error);
@@ -29,6 +31,10 @@ export async function submitContactForm(data: ContactFormData): Promise<ContactM
   }
 
   return message;
+}
+
+export async function sendContactMessage(data: ContactFormData): Promise<ContactMessage> {
+  return submitContactForm(data);
 }
 
 export async function getContactMessages(): Promise<ContactMessage[]> {
