@@ -143,6 +143,90 @@
     "subscribe": "Abonnieren",
     "rights": "Alle Rechte vorbehalten."
   },
+  "auth": {
+    "login": {
+      "title": "Anmelden",
+      "description": "Geben Sie Ihre E-Mail und Ihr Passwort ein, um auf Ihr Konto zuzugreifen",
+      "heading": "Willkommen zurück",
+      "subheading": "Melden Sie sich in Ihrem Konto an, um fortzufahren",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "rememberMe": "Angemeldet bleiben",
+      "submit": "Anmelden",
+      "success": "Erfolgreich angemeldet",
+      "error": "Anmeldung fehlgeschlagen",
+      "invalidCredentials": "Ungültige E-Mail oder Passwort",
+      "forgotPassword": "Passwort vergessen?",
+      "noAccount": "Haben Sie kein Konto?",
+      "signUp": "Registrieren",
+      "orContinueWith": "Oder fortfahren mit"
+    },
+    "register": {
+      "title": "Konto erstellen",
+      "description": "Registrieren Sie sich, um Angeltouren zu buchen",
+      "heading": "Erstellen Sie Ihr Konto",
+      "subheading": "Werden Sie Mitglied, um tolle Angelabenteuer zu buchen",
+      "name": "Vollständiger Name",
+      "email": "E-Mail",
+      "password": "Passwort",
+      "confirmPassword": "Passwort bestätigen",
+      "passwordStrength": "Passwortstärke",
+      "strong": "Stark",
+      "weak": "Schwach",
+      "requirements": {
+        "length": "Mindestens 8 Zeichen",
+        "uppercase": "Enthält Großbuchstaben",
+        "lowercase": "Enthält Kleinbuchstaben",
+        "number": "Enthält eine Zahl"
+      },
+      "submit": "Konto erstellen",
+      "success": "Konto erfolgreich erstellt",
+      "error": "Kontoerstellung fehlgeschlagen",
+      "hasAccount": "Haben Sie bereits ein Konto?",
+      "signIn": "Anmelden"
+    },
+    "forgotPassword": {
+      "title": "Passwort vergessen",
+      "description": "Wir senden Ihnen einen Reset-Link",
+      "heading": "Passwort zurücksetzen",
+      "subheading": "Geben Sie Ihre E-Mail ein und wir senden Ihnen einen Reset-Link",
+      "email": "E-Mail",
+      "submit": "Reset-Link senden",
+      "success": "Reset-Link an Ihre E-Mail gesendet",
+      "error": "Senden des Reset-Links fehlgeschlagen",
+      "back": "Zurück zur Anmeldung",
+      "backToLogin": "Zurück zur Anmeldung",
+      "checkEmail": "Überprüfen Sie Ihre E-Mail",
+      "checkEmailDescription": "Wir haben einen Passwort-Reset-Link an Ihre E-Mail gesendet",
+      "emailSent": "Bitte überprüfen Sie Ihren Posteingang und folgen Sie den Anweisungen, um Ihr Passwort zurückzusetzen"
+    },
+    "resetPassword": {
+      "title": "Passwort zurücksetzen",
+      "description": "Erstellen Sie ein neues Passwort",
+      "heading": "Neues Passwort erstellen",
+      "subheading": "Geben Sie unten Ihr neues Passwort ein",
+      "newPassword": "Neues Passwort",
+      "confirmPassword": "Passwort bestätigen",
+      "submit": "Passwort zurücksetzen",
+      "success": "Passwort erfolgreich zurückgesetzt",
+      "error": "Zurücksetzen des Passworts fehlgeschlagen",
+      "backToLogin": "Zurück zur Anmeldung",
+      "invalidToken": "Ungültiger oder abgelaufener Token",
+      "invalidTokenDescription": "Der Link zum Zurücksetzen des Passworts ist ungültig oder abgelaufen",
+      "requestNewLink": "Neuen Link anfordern"
+    },
+    "verifyEmail": {
+      "title": "E-Mail bestätigen",
+      "description": "Bitte bestätigen Sie Ihre E-Mail-Adresse",
+      "message": "Ein Bestätigungslink wurde an Ihre E-Mail gesendet. Bitte überprüfen Sie Ihren Posteingang und klicken Sie auf den Link, um Ihr Konto zu bestätigen.",
+      "goToLogin": "Zur Anmeldung",
+      "didNotReceive": "Haben Sie die E-Mail nicht erhalten?",
+      "resendEmail": "E-Mail erneut senden"
+    },
+    "logout": {
+      "success": "Erfolgreich abgemeldet"
+    }
+  },
   "common": {
     "loading": "Wird geladen...",
     "error": "Fehler",

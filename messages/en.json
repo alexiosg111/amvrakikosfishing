@@ -143,6 +143,90 @@
     "subscribe": "Subscribe",
     "rights": "All rights reserved."
   },
+  "auth": {
+    "login": {
+      "title": "Sign In",
+      "description": "Enter your email and password to access your account",
+      "heading": "Welcome back",
+      "subheading": "Sign in to your account to continue",
+      "email": "Email",
+      "password": "Password",
+      "rememberMe": "Remember me",
+      "submit": "Sign In",
+      "success": "Successfully signed in",
+      "error": "Failed to sign in",
+      "invalidCredentials": "Invalid email or password",
+      "forgotPassword": "Forgot password?",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "orContinueWith": "Or continue with"
+    },
+    "register": {
+      "title": "Create Account",
+      "description": "Sign up to book your fishing trips",
+      "heading": "Create your account",
+      "subheading": "Join us to book amazing fishing adventures",
+      "name": "Full Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "passwordStrength": "Password Strength",
+      "strong": "Strong",
+      "weak": "Weak",
+      "requirements": {
+        "length": "At least 8 characters",
+        "uppercase": "Contains uppercase letter",
+        "lowercase": "Contains lowercase letter",
+        "number": "Contains a number"
+      },
+      "submit": "Create Account",
+      "success": "Account created successfully",
+      "error": "Failed to create account",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign in"
+    },
+    "forgotPassword": {
+      "title": "Forgot Password",
+      "description": "We'll send you a reset link",
+      "heading": "Reset your password",
+      "subheading": "Enter your email and we'll send you a reset link",
+      "email": "Email",
+      "submit": "Send Reset Link",
+      "success": "Reset link sent to your email",
+      "error": "Failed to send reset link",
+      "back": "Back to Login",
+      "backToLogin": "Back to Login",
+      "checkEmail": "Check your email",
+      "checkEmailDescription": "We've sent a password reset link to your email",
+      "emailSent": "Please check your inbox and follow the instructions to reset your password"
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "description": "Create a new password",
+      "heading": "Create new password",
+      "subheading": "Enter your new password below",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm Password",
+      "submit": "Reset Password",
+      "success": "Password reset successfully",
+      "error": "Failed to reset password",
+      "backToLogin": "Back to Login",
+      "invalidToken": "Invalid or expired token",
+      "invalidTokenDescription": "The password reset link is invalid or has expired",
+      "requestNewLink": "Request a new link"
+    },
+    "verifyEmail": {
+      "title": "Verify Email",
+      "description": "Please verify your email address",
+      "message": "A verification link has been sent to your email. Please check your inbox and click the link to verify your account.",
+      "goToLogin": "Go to Login",
+      "didNotReceive": "Didn't receive the email?",
+      "resendEmail": "Resend email"
+    },
+    "logout": {
+      "success": "Successfully logged out"
+    }
+  },
   "common": {
     "loading": "Loading...",
     "error": "Error",
