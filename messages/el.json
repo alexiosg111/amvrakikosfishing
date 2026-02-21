@@ -158,5 +158,28 @@
     "readMore": "Διαβάστε Περισσότερα",
     "showLess": "Λιγότερα",
     "hours": "ώρες"
+  },
+  "admin": {
+    "title": "Πίνακας Διαχείρισης",
+    "dashboard": "Πίνακας",
+    "bookings": "Κρατήσεις",
+    "trips": "Εκδρομές",
+    "reviews": "Αξιολογήσεις",
+    "users": "Χρήστες",
+    "analytics": "Αναλυτικά",
+    "settings": "Ρυθμίσεις",
+    "addons": "Πρόσθετα",
+    "vouchers": "Κουπόνια",
+    "gallery": "Γκαλερί",
+    "totalRevenue": "Συνολικά Έσοδα",
+    "pendingBookings": "Εκκρεμείς Κρατήσεις",
+    "activeTrips": "Ενεργές Εκδρομές",
+    "recentActivity": "Πρόσφατη Δραστηριότητα",
+    "quickActions": "Γρήγορες Ενέργειες",
+    "createTrip": "Δημιουργία Εκδρομής",
+    "manageBookings": "Διαχείριση Κρατήσεων",
+    "moderateReviews": "Έλεγχος Αξιολογήσεων",
+    "exportData": "Εξαγωγή Δεδομένων",
+    "viewSite": "Προβολή Ιστότοπου"
   }
 }

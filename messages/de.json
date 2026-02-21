@@ -158,5 +158,28 @@
     "readMore": "Mehr lesen",
     "showLess": "Weniger anzeigen",
     "hours": "Stunden"
+  },
+  "admin": {
+    "title": "Admin-Panel",
+    "dashboard": "Dashboard",
+    "bookings": "Buchungen",
+    "trips": "Ausflüge",
+    "reviews": "Bewertungen",
+    "users": "Benutzer",
+    "analytics": "Analytik",
+    "settings": "Einstellungen",
+    "addons": "Add-Ons",
+    "vouchers": "Gutscheine",
+    "gallery": "Galerie",
+    "totalRevenue": "Gesamtumsatz",
+    "pendingBookings": "Ausstehende Buchungen",
+    "activeTrips": "Aktive Ausflüge",
+    "recentActivity": "Letzte Aktivität",
+    "quickActions": "Schnellaktionen",
+    "createTrip": "Ausflug erstellen",
+    "manageBookings": "Buchungen verwalten",
+    "moderateReviews": "Bewertungen moderieren",
+    "exportData": "Daten exportieren",
+    "viewSite": "Website anzeigen"
   }
 }
