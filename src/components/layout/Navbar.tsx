@@ -3,20 +3,36 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { useSession, signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { LanguageSwitcher } from "@/components/language/LanguageSwitcher";
-import { Menu, X, Anchor } from "lucide-react";
+import { Menu, X, Anchor, User, LogOut, LayoutDashboard } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useLocale } from "next-intl";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export function Navbar() {
   const t = useTranslations();
   const pathname = usePathname();
+  const locale = useLocale();
+  const { data: session, status } = useSession();
   const [isOpen, setIsOpen] = useState(false);
 
   // Extract locale from pathname
-  const locale = pathname.split('/')[1] || 'en';
+  const currentLocale = pathname.split('/')[1] || 'en';
+
+  const handleLogout = async () => {
+    await signOut({ callbackUrl: `/${locale}` });
+  };
 
   const navItems = [
     { href: `/${locale}`, label: t("navigation.home") },
@@ -27,6 +43,13 @@ export function Navbar() {
     { href: `/${locale}/faq`, label: t("navigation.faq") },
     { href: `/${locale}/contact`, label: t("navigation.contact") },
   ];
+
+  // Add dashboard link for authenticated users
+  if (session?.user) {
+    if (session.user.role === "ADMIN") {
+      navItems.push({ href: `/${locale}/admin`, label: t("navigation.admin") });
+    }
+  }
 
   const isActive = (href: string) => {
     return pathname === href || pathname.startsWith(`${href}/`);
@@ -78,12 +101,63 @@ export function Navbar() {
           {/* Right side */}
           <div className="flex items-center gap-3">
             <LanguageSwitcher />
-            
-            <Link href={`/${locale}/booking`} className="hidden sm:block">
-              <Button className="bg-blue-900 hover:bg-blue-800">
-                {t("navigation.bookNow")}
-              </Button>
-            </Link>
+
+            {status === "authenticated" && session?.user ? (
+              <>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="icon" className="relative">
+                      <User className="w-5 h-5" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-56">
+                    <DropdownMenuLabel>
+                      <div className="flex flex-col space-y-1">
+                        <p className="text-sm font-medium leading-none">
+                          {session.user.name || session.user.email}
+                        </p>
+                        <p className="text-xs leading-none text-muted-foreground">
+                          {session.user.email}
+                        </p>
+                      </div>
+                    </DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem asChild>
+                      <Link href={`/${locale}/dashboard`} className="cursor-pointer flex items-center gap-2">
+                        <LayoutDashboard className="w-4 h-4" />
+                        Dashboard
+                      </Link>
+                    </DropdownMenuItem>
+                    {session.user.role === "ADMIN" && (
+                      <DropdownMenuItem asChild>
+                        <Link href={`/${locale}/admin`} className="cursor-pointer flex items-center gap-2">
+                          <LayoutDashboard className="w-4 h-4" />
+                          Admin
+                        </Link>
+                      </DropdownMenuItem>
+                    )}
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={handleLogout} className="cursor-pointer flex items-center gap-2 text-red-600">
+                      <LogOut className="w-4 h-4" />
+                      Logout
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </>
+            ) : (
+              <>
+                <Link href={`/${locale}/login`} className="hidden sm:block">
+                  <Button variant="ghost">
+                    {t("auth.login.title")}
+                  </Button>
+                </Link>
+                <Link href={`/${locale}/booking`} className="hidden sm:block">
+                  <Button className="bg-blue-900 hover:bg-blue-800">
+                    {t("navigation.bookNow")}
+                  </Button>
+                </Link>
+              </>
+            )}
 
             {/* Mobile menu */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
@@ -108,11 +182,45 @@ export function Navbar() {
                       </Button>
                     </Link>
                   ))}
-                  <Link href={`/${locale}/booking`} onClick={() => setIsOpen(false)}>
-                    <Button className="w-full bg-blue-900 hover:bg-blue-800">
-                      {t("navigation.bookNow")}
-                    </Button>
-                  </Link>
+                  {status === "authenticated" ? (
+                    <>
+                      <Link href={`/${locale}/dashboard`} onClick={() => setIsOpen(false)}>
+                        <Button variant="outline" className="w-full justify-start">
+                          <LayoutDashboard className="w-4 h-4 mr-2" />
+                          Dashboard
+                        </Button>
+                      </Link>
+                      {session?.user?.role === "ADMIN" && (
+                        <Link href={`/${locale}/admin`} onClick={() => setIsOpen(false)}>
+                          <Button variant="outline" className="w-full justify-start">
+                            <LayoutDashboard className="w-4 h-4 mr-2" />
+                            Admin
+                          </Button>
+                        </Link>
+                      )}
+                      <Button
+                        variant="outline"
+                        className="w-full justify-start text-red-600"
+                        onClick={handleLogout}
+                      >
+                        <LogOut className="w-4 h-4 mr-2" />
+                        Logout
+                      </Button>
+                    </>
+                  ) : (
+                    <>
+                      <Link href={`/${locale}/login`} onClick={() => setIsOpen(false)}>
+                        <Button variant="outline" className="w-full">
+                          {t("auth.login.title")}
+                        </Button>
+                      </Link>
+                      <Link href={`/${locale}/booking`} onClick={() => setIsOpen(false)}>
+                        <Button className="w-full bg-blue-900 hover:bg-blue-800">
+                          {t("navigation.bookNow")}
+                        </Button>
+                      </Link>
+                    </>
+                  )}
                 </div>
               </SheetContent>
             </Sheet>
