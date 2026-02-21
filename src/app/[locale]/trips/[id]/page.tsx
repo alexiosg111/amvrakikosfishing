@@ -12,22 +12,24 @@ import { Clock, Users, Check, Star, MapPin, Calendar } from "lucide-react";
 import { formatPrice } from "@/lib/utils";
 
 interface TripPageProps {
-  params: {
+  params: Promise<{
     id: string;
     locale: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: TripPageProps) {
-  const trip = await getTripById(params.id);
+  const resolvedParams = await params;
+  const trip = await getTripById(resolvedParams.id);
   return {
     title: trip?.name || "Trip Not Found",
   };
 }
 
 export default async function TripPage({ params }: TripPageProps) {
-  const trip = await getTripById(params.id);
-  const reviews = await getTripReviews(params.id);
+  const resolvedParams = await params;
+  const trip = await getTripById(resolvedParams.id);
+  const reviews = await getTripReviews(resolvedParams.id);
   const t = await getTranslations();
 
   if (!trip) {

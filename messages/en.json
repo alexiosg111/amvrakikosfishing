@@ -117,7 +117,23 @@
     "trips": "Trips & Experience",
     "safety": "Safety & Equipment",
     "weather": "Weather & Cancellations",
-    "contact": "Still have questions? Contact us"
+    "contact": "Still have questions? Contact us",
+    "q1": "What should I bring on the fishing trip?",
+    "a1": "We recommend bringing sunscreen, sunglasses, a hat, comfortable clothing, and motion sickness medication if needed. We provide all fishing equipment, bait, and refreshments.",
+    "q2": "Do I need fishing experience?",
+    "a2": "Not at all! Our trips are suitable for beginners and experienced anglers alike. Captain Nikos will provide instructions and assistance throughout the trip.",
+    "q3": "What is your cancellation policy?",
+    "a3": "You can cancel up to 48 hours before your trip for a full refund. Cancellations within 48 hours may be subject to a fee. In case of bad weather, we'll offer a full refund or reschedule.",
+    "q4": "Are children allowed on the trips?",
+    "a4": "Yes! Children are welcome on all our trips. We adjust our fishing techniques to make it fun and educational for younger guests.",
+    "q5": "What happens if it rains on the day of my trip?",
+    "a5": "We monitor weather conditions closely. If the weather is unsafe, we'll offer to reschedule your trip or provide a full refund. Light rain typically doesn't affect the trip.",
+    "q6": "How far in advance should I book?",
+    "a6": "We recommend booking at least 2-3 days in advance to secure your preferred date, especially during peak season (June-August).",
+    "q7": "Is food included in the trip price?",
+    "a7": "Basic refreshments are included. You can add a lunch package as an add-on when booking for a fresh local seafood meal.",
+    "q8": "What's the maximum group size?",
+    "a8": "Our boat can accommodate up to 6 guests, ensuring a personalized and comfortable experience for everyone."
   },
   "contact": {
     "title": "Contact Us",
@@ -157,6 +173,7 @@
     "no": "No",
     "readMore": "Read More",
     "showLess": "Show Less",
-    "hours": "hours"
+    "hours": "hours",
+    "viewTrips": "View Trips"
   }
 }
