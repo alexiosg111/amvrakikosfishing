@@ -84,25 +84,89 @@
   "gallery": {
     "title": "Galerie",
     "subtitle": "Sehen Sie, was Sie auf Ihrem Angelabenteuer erwartet",
+    "metaTitle": "Angeltrip-Galerie | Amvrakikos-Bucht",
+    "metaDescription": "Entdecken Sie Fänge, Bootsmomente und die Landschaft der Amvrakikos-Bucht.",
     "catches": "Fänge",
     "boat": "Das Boot",
     "scenery": "Landschaft",
     "guests": "Unsere Gäste",
-    "all": "Alle"
+    "all": "Alle",
+    "empty": "Noch keine Galeriebilder verfügbar."
   },
   "testimonials": {
     "title": "Was unsere Gäste sagen",
     "subtitle": "Lesen Sie Bewertungen von unseren zufriedenen Kunden",
+    "metaTitle": "Gästestimmen | Amvrakikos Fishing Trips",
+    "metaDescription": "Entdecken Sie verifizierte Bewertungen von Gästen, die mit Kapitän Nikos unterwegs waren.",
     "verified": "Verifizierte Buchung",
     "writeReview": "Bewertung schreiben",
     "rating": "Bewertung",
-    "submit": "Bewertung absenden"
+    "submit": "Bewertung absenden",
+    "loadMore": "Mehr Bewertungen laden",
+    "empty": "Keine Bewertungen passen zu Ihren Filtern.",
+    "filters": {
+      "tripPlaceholder": "Nach Tour filtern",
+      "ratingPlaceholder": "Nach Bewertung filtern",
+      "allTrips": "Alle Touren",
+      "allRatings": "Alle Bewertungen",
+      "stars": "{rating} Sterne"
+    }
   },
   "about": {
     "title": "Über uns",
     "subtitle": "Lernen Sie Kapitän Nikos kennen und erfahren Sie mehr über unsere Leidenschaft für das Angeln",
+    "metaTitle": "Über Amvrakikos Fishing Trips",
+    "metaDescription": "Erfahren Sie die Geschichte unserer familiengeführten Angeltouren und unseres Teams.",
     "captain": "Kapitän Nikos",
     "captainBio": "Mit über 20 Jahren Erfahrung beim Angeln in der Amvrakikos-Bucht kennt Kapitän Nikos alle besten Plätze und Techniken, um Ihnen ein unvergessliches Erlebnis zu garantieren.",
+    "storyTitle": "Unsere Geschichte",
+    "storyParagraph1": "Was als kleines Familienboot Anfang der 2000er begann, ist heute eines der vertrauenswürdigsten Angelerlebnisse der Region.",
+    "storyParagraph2": "Wir feiern die Traditionen des Amvrakikos-Golfs und verbinden sie mit modernen, komfortablen Abenteuern.",
+    "storyParagraph3": "Von Sonnenaufgang bis Sonnenuntergang gestalten wir Erlebnisse voller Gastfreundschaft und lokaler Kultur.",
+    "storyImageAlt": "Amvrakikos-Bucht bei Sonnenaufgang",
+    "captainTitle": "Treffen Sie Kapitän Nikos",
+    "captainHighlights": {
+      "experienceTitle": "Lokale Expertise",
+      "experienceDesc": "Zwei Jahrzehnte Erfahrung mit den besten Angelplätzen der Bucht.",
+      "familyTitle": "Familiäre Gastfreundschaft",
+      "familyDesc": "Ein herzliches Team, das jeden Gast wie Familie empfängt."
+    },
+    "captainImageAlt": "Kapitän Nikos auf dem Boot",
+    "valuesTitle": "Unsere Mission & Werte",
+    "valuesSubtitle": "Wir setzen auf echte Gastfreundschaft, sichere Fahrten und bleibende Erinnerungen.",
+    "values": {
+      "heritage": {
+        "title": "Authentische Tradition",
+        "description": "Wir teilen lokale Angeltraditionen und Geschichten, die weitergegeben wurden."
+      },
+      "safety": {
+        "title": "Sicherheit zuerst",
+        "description": "Hochwertige Ausrüstung, zertifiziertes Training und Wetterüberwachung."
+      },
+      "moments": {
+        "title": "Unvergessliche Momente",
+        "description": "Kleine Details, die einen Tag auf dem Wasser besonders machen."
+      }
+    },
+    "teamTitle": "Unser Team",
+    "teamSubtitle": "Eine leidenschaftliche Crew für außergewöhnliche Erlebnisse.",
+    "team": {
+      "nikos": {
+        "name": "Kapitän Nikos",
+        "role": "Gründer & Kapitän",
+        "bio": "Ihr erfahrener Guide mit ruhiger Führung und großer Liebe zum Meer."
+      },
+      "maria": {
+        "name": "Maria",
+        "role": "Gästebetreuung",
+        "bio": "Koordiniert jedes Detail, damit Ihre Reise reibungslos verläuft."
+      },
+      "yannis": {
+        "name": "Yannis",
+        "role": "Bootshelfer & Guide",
+        "bio": "Unterstützt beim Fischen und sorgt für alles an Bord."
+      }
+    },
     "boat": "Unser Boot",
     "boatSpecs": "Unser voll ausgestattetes Angelschiff ist auf Komfort und Sicherheit ausgelegt, mit moderner Navigationsausrüstung und viel Platz für bis zu 6 Gäste.",
     "safety": "Sicherheit an erster Stelle",
@@ -113,15 +177,49 @@
   "faq": {
     "title": "Häufig gestellte Fragen",
     "subtitle": "Finden Sie Antworten auf häufige Fragen zu unseren Angeltouren",
-    "booking": "Buchung & Bezahlung",
-    "trips": "Touren & Erlebnis",
-    "safety": "Sicherheit & Ausrüstung",
-    "weather": "Wetter & Stornierungen",
-    "contact": "Noch Fragen? Kontaktieren Sie uns"
+    "metaTitle": "FAQ | Amvrakikos Fishing Trips",
+    "metaDescription": "Antworten zu Buchung, Touren und Zahlung bei Amvrakikos Fishing Trips.",
+    "searchPlaceholder": "Fragen durchsuchen",
+    "empty": "Keine Fragen passen zu Ihrer Suche.",
+    "contactPrompt": "Noch Fragen? Kontaktieren Sie uns, wir helfen gerne.",
+    "categories": {
+      "booking": "Buchung",
+      "trips": "Touren",
+      "payments": "Zahlungen",
+      "general": "Allgemein"
+    },
+    "questions": {
+      "booking": {
+        "q1": "Wie früh sollte ich buchen?",
+        "a1": "Wir empfehlen mindestens zwei Wochen im Voraus zu buchen, besonders im Sommer.",
+        "q2": "Kann ich meine Tour verschieben?",
+        "a2": "Ja. Geben Sie uns 48 Stunden vorher Bescheid und wir finden einen neuen Termin."
+      },
+      "trips": {
+        "q1": "Brauche ich Angelerfahrung?",
+        "a1": "Nein. Unsere Crew erklärt Ihnen jeden Schritt.",
+        "q2": "Was soll ich mitbringen?",
+        "a2": "Sonnenschutz, Hut und eine leichte Jacke. Die Ausrüstung stellen wir bereit."
+      },
+      "payments": {
+        "q1": "Welche Zahlungsmethoden akzeptieren Sie?",
+        "a1": "Wir akzeptieren gängige Kreditkarten und Banküberweisungen.",
+        "q2": "Ist eine Anzahlung erforderlich?",
+        "a2": "Eine kleine Anzahlung bestätigt die Reservierung, der Rest ist am Tag fällig."
+      },
+      "general": {
+        "q1": "Ist die Tour familienfreundlich?",
+        "a1": "Ja, wir heißen Gäste jeden Alters willkommen und passen die Tour an Ihre Gruppe an.",
+        "q2": "Sehen wir Delfine oder andere Tiere?",
+        "a2": "Die Bucht ist reich an Wildtieren, Sichtungen sind sehr häufig."
+      }
+    }
   },
   "contact": {
     "title": "Kontakt",
     "subtitle": "Kontaktieren Sie uns für Fragen oder besondere Wünsche",
+    "metaTitle": "Kontakt | Amvrakikos Fishing Trips",
+    "metaDescription": "Schreiben Sie uns oder erreichen Sie unser Team für Ihr Angelabenteuer.",
     "name": "Name",
     "email": "E-Mail",
     "phone": "Telefon (Optional)",
@@ -129,9 +227,18 @@
     "send": "Nachricht senden",
     "success": "Nachricht erfolgreich gesendet!",
     "successMessage": "Wir werden uns so schnell wie möglich bei Ihnen melden.",
+    "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
     "address": "Adresse",
     "hours": "Öffnungszeiten",
-    "location": "Amvrakikos-Bucht, Preveza, Griechenland"
+    "location": "Amvrakikos-Bucht, Preveza, Griechenland",
+    "formTitle": "Schreiben Sie uns",
+    "formSubtitle": "Teilen Sie uns Ihre Fragen oder Wünsche mit, wir antworten schnell.",
+    "phoneLabel": "Telefon",
+    "emailLabel": "E-Mail",
+    "hoursWeekdays": "Mo - Sa: 08:00 - 20:00",
+    "hoursWeekend": "So: 09:00 - 14:00",
+    "mapTitle": "Finden Sie uns in Preveza",
+    "mapSubtitle": "Unser Steg ist leicht von Preveza und den Resorts erreichbar."
   },
   "footer": {
     "tagline": "Unvergessliche Angel-Erinnerungen seit 2005",
