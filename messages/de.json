@@ -117,7 +117,23 @@
     "trips": "Touren & Erlebnis",
     "safety": "Sicherheit & Ausrüstung",
     "weather": "Wetter & Stornierungen",
-    "contact": "Noch Fragen? Kontaktieren Sie uns"
+    "contact": "Noch Fragen? Kontaktieren Sie uns",
+    "q1": "Was sollte ich zur Angeltour mitbringen?",
+    "a1": "Wir empfehlen Sonnenschutzmittel, Sonnenbrille, Hut, bequeme Kleidung und ggf. Medikamente gegen Seekrankheit. Wir stellen alle Angelausrüstung, Köder und Getränke bereit.",
+    "q2": "Brauche ich Angelschein?",
+    "a2": "Überhaupt nicht! Unsere Touren sind sowohl für Anfänger als auch für erfahrene Angler geeignet. Kapitän Nikos gibt Ihnen Anleitung und Unterstützung während der gesamten Tour.",
+    "q3": "Wie ist Ihre Stornierungsrichtlinie?",
+    "a3": "Sie können bis zu 48 Stunden vor Ihrer Tour kostenlos stornieren. Stornierungen innerhalb von 48 Stunden können gebührenpflichtig sein. Bei schlechtem Wetter bieten wir eine vollständige Rückerstattung oder eine Umbuchung an.",
+    "q4": "Sind Kinder auf den Touren erlaubt?",
+    "a4": "Ja! Kinder sind auf allen unseren Touren willkommen. Wir passen unsere Anglertechniken an, um es für jüngere Gäste lustig und lehrreich zu gestalten.",
+    "q5": "Was passiert, wenn es am Tag meiner Tour regnet?",
+    "a5": "Wir überwachen die Wetterbedingungen genau. Wenn das Wetter unsicher ist, bieten wir eine Umbuchung oder vollständige Rückerstattung an. Leichter Regen beeinträchtigt die Tour normalerweise nicht.",
+    "q6": "Wie weit im Voraus sollte ich buchen?",
+    "a6": "Wir empfehlen, mindestens 2-3 Tage im Voraus zu buchen, um Ihren bevorzugten Termin zu sichern, besonders in der Hochsaison (Juni-August).",
+    "q7": "Ist Essen im Tourpreis inbegriffen?",
+    "a7": "Grundlegende Getränke sind inbegriffen. Sie können ein Mittagspaket als Zusatzoption hinzufügen für eine frische lokale Meeresfrüchte-Mahlzeit.",
+    "q8": "Was ist die maximale Gruppengröße?",
+    "a8": "Unser Boot kann bis zu 6 Gäste aufnehmen, um ein persönliches und komfortables Erlebnis für alle zu gewährleisten."
   },
   "contact": {
     "title": "Kontakt",
@@ -157,6 +173,7 @@
     "no": "Nein",
     "readMore": "Mehr lesen",
     "showLess": "Weniger anzeigen",
-    "hours": "Stunden"
+    "hours": "Stunden",
+    "viewTrips": "Touren ansehen"
   }
 }
