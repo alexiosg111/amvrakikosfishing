@@ -1,4 +1,5 @@
 export type BookingStatus = 'PENDING' | 'CONFIRMED' | 'PAID' | 'CANCELLED' | 'COMPLETED';
+export type PaymentStatus = 'PENDING' | 'PROCESSING' | 'SUCCEEDED' | 'FAILED' | 'CANCELLED' | 'REFUNDED';
 export type AddOnCategory = 'GENERAL' | 'FOOD' | 'TRANSPORT' | 'EQUIPMENT' | 'PHOTO' | 'PREMIUM';
 
 export interface Trip {
@@ -82,9 +83,15 @@ export interface Voucher {
 export interface Payment {
   id: string;
   bookingId: string;
-  stripePaymentId: string;
+  stripePaymentId?: string;
+  stripeCheckoutSession?: string;
   amount: number;
-  status: string;
+  currency: string;
+  status: PaymentStatus;
+  paymentMethod?: string;
+  receiptUrl?: string;
+  failureReason?: string;
+  refundedAmount: number;
   createdAt: Date;
   updatedAt: Date;
 }

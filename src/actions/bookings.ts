@@ -2,7 +2,7 @@
 
 import { prisma } from '@/lib/db';
 import { BookingFormData } from '@/lib/validations';
-import { Booking, AddOn } from '@/types';
+import { Booking, AddOn, AddOnCategory } from '@/types';
 import { revalidatePath } from 'next/cache';
 
 export async function createBooking(data: BookingFormData): Promise<Booking> {
@@ -123,6 +123,8 @@ export async function createBooking(data: BookingFormData): Promise<Booking> {
       addOn: ba.addOn ? {
         ...ba.addOn,
         price: ba.price,
+        category: ba.addOn.category as AddOnCategory,
+        imageUrl: ba.addOn.imageUrl ?? undefined,
       } : undefined,
     })),
   };
@@ -151,6 +153,8 @@ export async function getBookingById(id: string): Promise<Booking | null> {
       addOn: ba.addOn ? {
         ...ba.addOn,
         price: ba.price,
+        category: ba.addOn.category as AddOnCategory,
+        imageUrl: ba.addOn.imageUrl ?? undefined,
       } : undefined,
     })),
   };
@@ -179,16 +183,23 @@ export async function updateBookingStatus(id: string, status: string): Promise<B
       addOn: ba.addOn ? {
         ...ba.addOn,
         price: ba.price,
+        category: ba.addOn.category as AddOnCategory,
+        imageUrl: ba.addOn.imageUrl ?? undefined,
       } : undefined,
     })),
   };
 }
 
 export async function getAddOns(): Promise<AddOn[]> {
-  return await prisma.addOn.findMany({
+  const addOns = await prisma.addOn.findMany({
     where: { isActive: true },
     orderBy: { category: 'asc' },
   });
+  
+  return addOns.map(addOn => ({
+    ...addOn,
+    category: addOn.category as AddOnCategory,
+  }));
 }
 
 export async function validateVoucher(code: string, purchaseAmount: number): Promise<{ valid: boolean; discount: number; message: string }> {
