@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -30,6 +30,8 @@ const steps = ["step1", "step2", "step3", "step4"];
 export default function BookingPage() {
   const t = useTranslations();
   const searchParams = useSearchParams();
+  const params = useParams();
+  const currentLocale = params.locale as string;
   const selectedTripId = searchParams.get("trip");
 
   const [currentStep, setCurrentStep] = useState(0);
@@ -137,10 +139,11 @@ export default function BookingPage() {
         ...data,
         date: selectedDate!,
         addOns: selectedAddOns,
+        voucherCode: voucherDiscount > 0 ? watch("voucherCode") : undefined,
       });
       toast.success(t("booking.success"));
-      // Redirect to payment or success page
-      window.location.href = `/booking/success?id=${booking.id}`;
+      // Redirect to checkout page for payment
+      window.location.href = `/${currentLocale}/checkout/${booking.id}`;
     } catch (error) {
       toast.error(t("booking.error"));
     } finally {
