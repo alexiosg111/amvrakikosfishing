@@ -5,7 +5,7 @@ import { GalleryImage } from '@/types';
 
 export async function getGalleryImages(category?: string): Promise<GalleryImage[]> {
   const where: { isActive: boolean; category?: string } = { isActive: true };
-  
+
   if (category && category !== 'all') {
     where.category = category;
   }
