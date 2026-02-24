@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const bookingSchema = z.object({
   tripId: z.string().min(1, 'Trip is required'),
-  date: z.date({ required_error: 'Date is required' }),
+  date: z.date({ message: 'Date is required' }),
   participants: z.number().min(1, 'At least 1 participant is required').max(10, 'Maximum 10 participants'),
   contactName: z.string().min(2, 'Name must be at least 2 characters'),
   contactEmail: z.string().email('Invalid email address'),
