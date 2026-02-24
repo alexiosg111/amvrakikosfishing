@@ -143,6 +143,23 @@
     "subscribe": "Abonnieren",
     "rights": "Alle Rechte vorbehalten."
   },
+  "auth": {
+    "adminLogin": "Admin-Anmeldung",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "signIn": "Anmelden",
+    "signOut": "Abmelden",
+    "invalidCredentials": "Ungültige E-Mail oder Passwort"
+  },
+  "admin": {
+    "dashboard": "Dashboard",
+    "trips": "Touren",
+    "bookings": "Buchungen",
+    "gallery": "Galerie",
+    "reviews": "Bewertungen",
+    "messages": "Nachrichten",
+    "vouchers": "Gutscheine"
+  },
   "common": {
     "loading": "Wird geladen...",
     "error": "Fehler",

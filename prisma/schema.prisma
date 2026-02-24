@@ -4,6 +4,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
+  url      = env("DATABASE_URL")
 }
 
 model Trip {
@@ -27,21 +28,13 @@ model Trip {
   @@index([isActive, isPremium])
 }
 
-enum BookingStatus {
-  PENDING
-  CONFIRMED
-  PAID
-  CANCELLED
-  COMPLETED
-}
-
 model Booking {
   id              String        @id @default(cuid())
   tripId          String
   date            DateTime
   participants    Int
   totalPrice      Int
-  status          BookingStatus @default(PENDING)
+  status          String        @default("PENDING")
   contactEmail    String
   contactPhone    String
   contactName     String
@@ -62,22 +55,13 @@ model AddOn {
   name            String
   description     String
   price           Int
-  category        AddOnCategory  @default(GENERAL)
+  category        String         @default("GENERAL")
   isActive        Boolean        @default(true)
   imageUrl        String?
   createdAt       DateTime       @default(now())
   updatedAt       DateTime       @updatedAt
   
   bookingAddOns   BookingAddOn[]
-}
-
-enum AddOnCategory {
-  GENERAL
-  FOOD
-  TRANSPORT
-  EQUIPMENT
-  PHOTO
-  PREMIUM
 }
 
 model BookingAddOn {
@@ -163,4 +147,13 @@ model GalleryImage {
   createdAt   DateTime @default(now())
   
   @@index([category, isActive])
+}
+
+model AdminUser {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

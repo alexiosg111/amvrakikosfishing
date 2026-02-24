@@ -1,5 +1,5 @@
 export type BookingStatus = 'PENDING' | 'CONFIRMED' | 'PAID' | 'CANCELLED' | 'COMPLETED';
-export type AddOnCategory = 'GENERAL' | 'FOOD' | 'TRANSPORT' | 'EQUIPMENT' | 'PHOTO' | 'PREMIUM';
+export type AddOnCategory = string;
 
 export interface Trip {
   id: string;
@@ -41,7 +41,7 @@ export interface AddOn {
   price: number;
   category: AddOnCategory;
   isActive: boolean;
-  imageUrl?: string;
+  imageUrl?: string | null;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -92,9 +92,9 @@ export interface Payment {
 export interface GalleryImage {
   id: string;
   title: string;
-  description?: string;
+  description?: string | null;
   imageUrl: string;
-  category: 'catches' | 'boat' | 'scenery' | 'guests';
+  category: string;
   isActive: boolean;
   createdAt: Date;
 }
@@ -103,7 +103,7 @@ export interface ContactMessage {
   id: string;
   name: string;
   email: string;
-  phone?: string;
+  phone?: string | null;
   message: string;
   status: string;
   createdAt: Date;

@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client';
+import bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();
 
@@ -275,6 +276,20 @@ async function main() {
   }
 
   console.log('Created gallery images');
+
+  // Create default admin user
+  const adminPassword = await bcrypt.hash('admin123', 12);
+  await prisma.adminUser.upsert({
+    where: { email: 'admin@amvrakikos.com' },
+    update: {},
+    create: {
+      email: 'admin@amvrakikos.com',
+      password: adminPassword,
+      name: 'Administrator',
+    },
+  });
+
+  console.log('Created admin user (email: admin@amvrakikos.com, password: admin123)');
   console.log('Seeding completed!');
 }
 

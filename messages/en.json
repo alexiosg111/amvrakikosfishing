@@ -143,6 +143,23 @@
     "subscribe": "Subscribe",
     "rights": "All rights reserved."
   },
+  "auth": {
+    "adminLogin": "Admin Login",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "invalidCredentials": "Invalid email or password"
+  },
+  "admin": {
+    "dashboard": "Dashboard",
+    "trips": "Trips",
+    "bookings": "Bookings",
+    "gallery": "Gallery",
+    "reviews": "Reviews",
+    "messages": "Messages",
+    "vouchers": "Vouchers"
+  },
   "common": {
     "loading": "Loading...",
     "error": "Error",

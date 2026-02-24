@@ -7,6 +7,7 @@ import { routing } from "@/i18n/routing";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { SessionProvider } from "next-auth/react";
 import "../globals.css";
 
 const inter = Inter({
@@ -56,12 +57,14 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
-        <NextIntlClientProvider messages={messages}>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <Toaster />
-        </NextIntlClientProvider>
+        <SessionProvider>
+          <NextIntlClientProvider messages={messages}>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+            <Toaster />
+          </NextIntlClientProvider>
+        </SessionProvider>
       </body>
     </html>
   );

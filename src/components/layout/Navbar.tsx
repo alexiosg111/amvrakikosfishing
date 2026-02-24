@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { LanguageSwitcher } from "@/components/language/LanguageSwitcher";
+import { AuthButton } from "@/components/auth/AuthButton";
 import { Menu, X, Anchor } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -77,6 +78,7 @@ export function Navbar() {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
+            <AuthButton />
             <LanguageSwitcher />
             
             <Link href={`/${locale}/booking`} className="hidden sm:block">
