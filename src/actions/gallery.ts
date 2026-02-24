@@ -23,5 +23,5 @@ export async function getGalleryCategories(): Promise<string[]> {
     distinct: ['category'],
   });
 
-  return categories.map(c => c.category);
+  return categories.map((c: { category: string }) => c.category);
 }

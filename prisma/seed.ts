@@ -185,7 +185,7 @@ async function main() {
 
   // Get trip IDs for reviews
   const trips = await prisma.trip.findMany();
-  const tripMap = new Map(trips.map(t => [t.name, t.id]));
+  const tripMap = new Map(trips.map((t: { id: string; name: string }) => [t.name, t.id]));
 
   // Create sample reviews
   const reviewsData = [

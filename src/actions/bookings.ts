@@ -118,7 +118,7 @@ export async function createBooking(data: BookingFormData): Promise<Booking> {
 
   return {
     ...booking,
-    bookingAddOns: booking.bookingAddOns.map(ba => ({
+    bookingAddOns: booking.bookingAddOns.map((ba: { id: string; bookingId: string; addOnId: string; addOn: { id: string; name: string; description: string; price: number; category: string; isActive: boolean; imageUrl: string | null; createdAt: Date; updatedAt: Date } | null; quantity: number; price: number }) => ({
       ...ba,
       addOn: ba.addOn ? {
         ...ba.addOn,
@@ -146,7 +146,7 @@ export async function getBookingById(id: string): Promise<Booking | null> {
 
   return {
     ...booking,
-    bookingAddOns: booking.bookingAddOns.map(ba => ({
+    bookingAddOns: booking.bookingAddOns.map((ba: { id: string; bookingId: string; addOnId: string; addOn: { id: string; name: string; description: string; price: number; category: string; isActive: boolean; imageUrl: string | null; createdAt: Date; updatedAt: Date } | null; quantity: number; price: number }) => ({
       ...ba,
       addOn: ba.addOn ? {
         ...ba.addOn,
@@ -174,7 +174,7 @@ export async function updateBookingStatus(id: string, status: string): Promise<B
 
   return {
     ...booking,
-    bookingAddOns: booking.bookingAddOns.map(ba => ({
+    bookingAddOns: booking.bookingAddOns.map((ba: { id: string; bookingId: string; addOnId: string; addOn: { id: string; name: string; description: string; price: number; category: string; isActive: boolean; imageUrl: string | null; createdAt: Date; updatedAt: Date } | null; quantity: number; price: number }) => ({
       ...ba,
       addOn: ba.addOn ? {
         ...ba.addOn,
