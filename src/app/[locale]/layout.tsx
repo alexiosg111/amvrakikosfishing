@@ -3,6 +3,7 @@ import { Inter, Playfair_Display } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { headers } from "next/headers";
 import { routing } from "@/i18n/routing";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -46,25 +47,24 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  // Ensure that the incoming locale is valid
   if (!routing.locales.includes(locale as any)) {
     notFound();
   }
 
-  // Providing all messages to the client side
   const messages = await getMessages({ locale });
+  const headersList = headers();
+  const pathname = headersList.get("x-pathname") || headersList.get("next-url") || "";
+  const isAdmin = pathname.includes("/admin");
 
   return (
     <html lang={locale}>
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
-        <SessionProvider>
-          <NextIntlClientProvider messages={messages}>
-            <Navbar />
-            <main>{children}</main>
-            <Footer />
-            <Toaster />
-          </NextIntlClientProvider>
-        </SessionProvider>
+        <NextIntlClientProvider messages={messages}>
+          {!isAdmin && <Navbar />}
+          <main>{children}</main>
+          {!isAdmin && <Footer />}
+          <Toaster />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

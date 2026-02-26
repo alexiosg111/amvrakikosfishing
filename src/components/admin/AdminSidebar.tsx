@@ -2,108 +2,107 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
-import { LogoutButton } from "@/components/admin/LogoutButton";
+import { cn } from "@/lib/utils";
 import {
-  Anchor,
   LayoutDashboard,
-  Ship,
   CalendarCheck,
-  Image,
-  MessageSquare,
+  Sailboat,
   Star,
+  Users,
+  Package,
   Tag,
+  Image,
+  BarChart3,
+  Settings,
+  LogOut,
+  Anchor,
+  X,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const navItems = [
+  { href: "admin", label: "Dashboard", icon: LayoutDashboard },
+  { href: "admin/bookings", label: "Bookings", icon: CalendarCheck },
+  { href: "admin/trips", label: "Trips", icon: Sailboat },
+  { href: "admin/reviews", label: "Reviews", icon: Star },
+  { href: "admin/users", label: "Users", icon: Users },
+  { href: "admin/addons", label: "Add-Ons", icon: Package },
+  { href: "admin/vouchers", label: "Vouchers", icon: Tag },
+  { href: "admin/gallery", label: "Gallery", icon: Image },
+  { href: "admin/analytics", label: "Analytics", icon: BarChart3 },
+  { href: "admin/settings", label: "Settings", icon: Settings },
+];
 
 interface AdminSidebarProps {
   locale: string;
+  onClose?: () => void;
 }
 
-export function AdminSidebar({ locale }: AdminSidebarProps) {
+export function AdminSidebar({ locale, onClose }: AdminSidebarProps) {
   const pathname = usePathname();
 
-  const navItems = [
-    {
-      href: `/${locale}/admin`,
-      label: "Dashboard",
-      icon: LayoutDashboard,
-    },
-    {
-      href: `/${locale}/admin/trips`,
-      label: "Trips",
-      icon: Ship,
-    },
-    {
-      href: `/${locale}/admin/bookings`,
-      label: "Bookings",
-      icon: CalendarCheck,
-    },
-    {
-      href: `/${locale}/admin/gallery`,
-      label: "Gallery",
-      icon: Image,
-    },
-    {
-      href: `/${locale}/admin/reviews`,
-      label: "Reviews",
-      icon: Star,
-    },
-    {
-      href: `/${locale}/admin/messages`,
-      label: "Messages",
-      icon: MessageSquare,
-    },
-    {
-      href: `/${locale}/admin/vouchers`,
-      label: "Vouchers",
-      icon: Tag,
-    },
-  ];
-
   const isActive = (href: string) => {
-    if (href === `/${locale}/admin`) {
-      return pathname === href;
+    const fullPath = `/${locale}/${href}`;
+    if (href === "admin") {
+      return pathname === fullPath;
     }
-    return pathname.startsWith(href);
+    return pathname.startsWith(fullPath);
   };
 
   return (
-    <aside className="w-64 bg-blue-900 text-white flex flex-col min-h-screen">
-      <div className="p-6 border-b border-blue-800">
+    <div className="flex flex-col h-full bg-slate-900 text-white w-64">
+      <div className="flex items-center justify-between p-6 border-b border-slate-700">
         <Link href={`/${locale}/admin`} className="flex items-center gap-2">
-          <div className="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center">
-            <Anchor className="w-5 h-5 text-white" />
+          <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+            <Anchor className="w-4 h-4 text-white" />
           </div>
-          <span className="font-serif text-lg font-bold">Admin</span>
+          <span className="font-semibold text-sm">Admin Panel</span>
         </Link>
+        {onClose && (
+          <button onClick={onClose} className="text-slate-400 hover:text-white lg:hidden">
+            <X className="w-5 h-5" />
+          </button>
+        )}
       </div>
 
-      <nav className="flex-1 p-4 space-y-1">
-        {navItems.map((item) => {
-          const Icon = item.icon;
-          const active = isActive(item.href);
-          return (
-            <Link key={item.href} href={item.href}>
-              <motion.div
-                whileHover={{ x: 4 }}
-                transition={{ duration: 0.15 }}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                  active
-                    ? "bg-white/20 text-white"
-                    : "text-blue-100 hover:bg-white/10 hover:text-white"
-                }`}
-              >
-                <Icon className="w-4 h-4 flex-shrink-0" />
-                {item.label}
-              </motion.div>
-            </Link>
-          );
-        })}
+      <nav className="flex-1 overflow-y-auto py-4 px-3">
+        <ul className="space-y-1">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const active = isActive(item.href);
+            return (
+              <li key={item.href}>
+                <Link
+                  href={`/${locale}/${item.href}`}
+                  onClick={onClose}
+                  className={cn(
+                    "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                    active
+                      ? "bg-blue-600 text-white"
+                      : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                  )}
+                >
+                  <Icon className="w-4 h-4 shrink-0" />
+                  {item.label}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       </nav>
 
-      <div className="p-4 border-t border-blue-800">
-        <LogoutButton locale={locale} />
+      <div className="p-4 border-t border-slate-700">
+        <Link href={`/${locale}`}>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="w-full justify-start text-slate-300 hover:text-white hover:bg-slate-800"
+          >
+            <LogOut className="w-4 h-4 mr-2" />
+            View Site
+          </Button>
+        </Link>
       </div>
-    </aside>
+    </div>
   );
 }

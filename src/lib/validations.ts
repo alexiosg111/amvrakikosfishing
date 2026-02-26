@@ -13,6 +13,7 @@ export const bookingSchema = z.object({
     quantity: z.number().min(1),
   })).optional(),
   voucherCode: z.string().optional(),
+  locale: z.string().optional(),
 });
 
 export type BookingFormData = z.infer<typeof bookingSchema>;
