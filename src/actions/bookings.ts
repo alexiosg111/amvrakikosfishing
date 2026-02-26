@@ -4,8 +4,10 @@ import { prisma } from '@/lib/db';
 import { BookingFormData } from '@/lib/validations';
 import { Booking, AddOn } from '@/types';
 import { revalidatePath } from 'next/cache';
+import { createCheckoutSession } from '@/lib/stripe';
+import { sendBookingConfirmation, sendAdminBookingNotification } from '@/lib/email';
 
-export async function createBooking(data: BookingFormData): Promise<Booking> {
+export async function createBooking(data: BookingFormData): Promise<{ booking: Booking; checkoutUrl: string }> {
   // Calculate total price
   const trip = await prisma.trip.findUnique({
     where: { id: data.tripId },
@@ -116,7 +118,50 @@ export async function createBooking(data: BookingFormData): Promise<Booking> {
   revalidatePath('/trips');
   revalidatePath('/admin');
 
-  return {
+  // Prepare addOns for email
+  const addOnsList = booking.bookingAddOns.map(ba => ({
+    name: ba.addOn?.name || '',
+    quantity: ba.quantity,
+    price: ba.price,
+  }));
+
+  // Send booking confirmation email (non-blocking)
+  const locale = data.locale || 'en';
+  sendBookingConfirmation({
+    to: booking.contactEmail,
+    bookingId: booking.id,
+    tripName: trip.name,
+    date: booking.date,
+    participants: booking.participants,
+    totalPrice: booking.totalPrice,
+    name: booking.contactName,
+    addOns: addOnsList,
+    locale,
+  }).catch(err => console.error('Failed to send booking confirmation:', err));
+
+  // Send admin notification (non-blocking)
+  sendAdminBookingNotification({
+    bookingId: booking.id,
+    tripName: trip.name,
+    date: booking.date,
+    participants: booking.participants,
+    totalPrice: booking.totalPrice,
+    contactName: booking.contactName,
+    contactEmail: booking.contactEmail,
+    contactPhone: booking.contactPhone,
+    notes: booking.notes || undefined,
+  }).catch(err => console.error('Failed to send admin notification:', err));
+
+  // Create Stripe checkout session
+  const session = await createCheckoutSession({
+    bookingId: booking.id,
+    amount: booking.totalPrice,
+    email: booking.contactEmail,
+    tripName: trip.name,
+    locale,
+  });
+
+  const formattedBooking = {
     ...booking,
     bookingAddOns: booking.bookingAddOns.map(ba => ({
       ...ba,
@@ -125,6 +170,11 @@ export async function createBooking(data: BookingFormData): Promise<Booking> {
         price: ba.price,
       } : undefined,
     })),
+  };
+
+  return {
+    booking: formattedBooking,
+    checkoutUrl: session.url || '',
   };
 }
 
