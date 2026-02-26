@@ -230,6 +230,23 @@
     "subscribe": "Εγγραφή",
     "rights": "Με επιφύλαξη παντός δικαιώματος."
   },
+  "auth": {
+    "adminLogin": "Σύνδεση Διαχειριστή",
+    "email": "Email",
+    "password": "Κωδικός",
+    "signIn": "Σύνδεση",
+    "signOut": "Αποσύνδεση",
+    "invalidCredentials": "Λανθασμένο email ή κωδικός"
+  },
+  "admin": {
+    "dashboard": "Πίνακας Ελέγχου",
+    "trips": "Εκδρομές",
+    "bookings": "Κρατήσεις",
+    "gallery": "Galerie",
+    "reviews": "Κριτικές",
+    "messages": "Μηνύματα",
+    "vouchers": "Vouchers"
+  },
   "common": {
     "loading": "Φόρτωση...",
     "error": "Σφάλμα",
