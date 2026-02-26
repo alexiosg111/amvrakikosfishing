@@ -22,11 +22,20 @@ export async function createReview(data: ReviewFormData): Promise<Review> {
   return review;
 }
 
-export async function getReviews(): Promise<Review[]> {
+export async function getReviews(tripId?: string, rating?: number): Promise<Review[]> {
+  const where: { isVerified: boolean; tripId?: string; rating?: number } = { isVerified: true };
+
+  if (tripId && tripId !== 'all') {
+    where.tripId = tripId;
+  }
+
+  if (rating && rating > 0) {
+    where.rating = rating;
+  }
+
   return await prisma.review.findMany({
-    where: { isVerified: true },
+    where,
     orderBy: { createdAt: 'desc' },
-    take: 20,
     include: {
       trip: true,
     },
