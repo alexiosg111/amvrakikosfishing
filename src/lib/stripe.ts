@@ -9,14 +9,18 @@ export async function createCheckoutSession({
   amount,
   email,
   tripName,
+  locale = 'en',
   metadata,
 }: {
   bookingId: string;
   amount: number;
   email: string;
   tripName: string;
-  metadata: Record<string, string>;
+  locale?: string;
+  metadata?: Record<string, string>;
 }) {
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+  
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     line_items: [
@@ -33,11 +37,12 @@ export async function createCheckoutSession({
       },
     ],
     mode: 'payment',
-    success_url: `${process.env.NEXT_PUBLIC_APP_URL}/booking/success?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/booking/cancel`,
+    success_url: `${appUrl}/${locale}/booking/success?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${appUrl}/${locale}/booking/cancel`,
     customer_email: email,
     metadata: {
       bookingId,
+      locale,
       ...metadata,
     },
   });

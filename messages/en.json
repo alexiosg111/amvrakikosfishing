@@ -66,6 +66,36 @@
     "successMessage": "Thank you for your booking. We'll contact you shortly.",
     "error": "Something went wrong. Please try again."
   },
+  "bookingSuccess": {
+    "title": "Booking Confirmed!",
+    "subtitle": "Your adventure awaits",
+    "bookingDetails": "Booking Details",
+    "date": "Date",
+    "trip": "Trip",
+    "participants": "Participants",
+    "totalPaid": "Total Paid",
+    "bookingRef": "Booking Reference",
+    "emailSent": "A confirmation email has been sent to",
+    "receipt": "A payment receipt has been sent to your email.",
+    "nextSteps": "What's Next?",
+    "step1": "Check your email for confirmation details",
+    "step2": "Arrive at the harbor 15 minutes early",
+    "step3": "Bring your booking reference number",
+    "backHome": "Back to Home",
+    "moreTrips": "Browse More Trips"
+  },
+  "bookingCancel": {
+    "title": "Payment Cancelled",
+    "subtitle": "No charges were made",
+    "message": "Your booking has not been completed. Would you like to try again?",
+    "whyCancelled": "This can happen when:",
+    "reason1": "The payment process was interrupted",
+    "reason2": "Your card was declined",
+    "reason3": "The session expired before payment was completed",
+    "needHelp": "Need Help?",
+    "tryAgain": "Try Again",
+    "contactUs": "Contact Us"
+  },
   "addOns": {
     "title": "Enhance Your Experience",
     "subtitle": "Add these popular extras to make your trip unforgettable",

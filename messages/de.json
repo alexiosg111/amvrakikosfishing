@@ -66,6 +66,36 @@
     "successMessage": "Vielen Dank für Ihre Buchung. Wir werden Sie in Kürze kontaktieren.",
     "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
   },
+  "bookingSuccess": {
+    "title": "Buchung bestätigt!",
+    "subtitle": "Ihr Abenteuer wartet auf Sie",
+    "bookingDetails": "Buchungsdetails",
+    "date": "Datum",
+    "trip": "Tour",
+    "participants": "Teilnehmer",
+    "totalPaid": "Gezahlter Betrag",
+    "bookingRef": "Buchungsreferenz",
+    "emailSent": "Eine Bestätigungsmail wurde gesendet an",
+    "receipt": "Eine Zahlungsbestätigung wurde an Ihre E-Mail gesendet.",
+    "nextSteps": "Was kommt als Nächstes?",
+    "step1": "Überprüfen Sie Ihre E-Mail für Bestätigungsdetails",
+    "step2": "Kommen Sie 15 Minuten früher zum Hafen",
+    "step3": "Bringen Sie Ihre Buchungsreferenznummer mit",
+    "backHome": "Zurück zur Startseite",
+    "moreTrips": "Weitere Touren ansehen"
+  },
+  "bookingCancel": {
+    "title": "Zahlung abgebrochen",
+    "subtitle": "Es wurden keine Kosten verursacht",
+    "message": "Ihre Buchung wurde nicht abgeschlossen. Möchten Sie es erneut versuchen?",
+    "whyCancelled": "Dies kann passieren, wenn:",
+    "reason1": "Der Zahlungsvorgang unterbrochen wurde",
+    "reason2": "Ihre Karte abgelehnt wurde",
+    "reason3": "Die Sitzung abgelaufen ist, bevor die Zahlung abgeschlossen wurde",
+    "needHelp": "Brauchen Sie Hilfe?",
+    "tryAgain": "Erneut versuchen",
+    "contactUs": "Kontaktieren Sie uns"
+  },
   "addOns": {
     "title": "Bereichern Sie Ihr Erlebnis",
     "subtitle": "Fügen Sie diese beliebten Extras hinzu, um Ihre Tour unvergesslich zu machen",

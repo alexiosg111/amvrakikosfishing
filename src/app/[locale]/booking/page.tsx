@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -29,6 +29,8 @@ const steps = ["step1", "step2", "step3", "step4"];
 
 export default function BookingPage() {
   const t = useTranslations();
+  const params = useParams();
+  const locale = params.locale as string || 'en';
   const searchParams = useSearchParams();
   const selectedTripId = searchParams.get("trip");
 
@@ -133,14 +135,21 @@ export default function BookingPage() {
 
     setIsSubmitting(true);
     try {
-      const booking = await createBooking({
+      const result = await createBooking({
         ...data,
         date: selectedDate!,
         addOns: selectedAddOns,
+        locale,
       });
-      toast.success(t("booking.success"));
-      // Redirect to payment or success page
-      window.location.href = `/booking/success?id=${booking.id}`;
+      
+      // Redirect to Stripe checkout
+      if (result.checkoutUrl) {
+        window.location.href = result.checkoutUrl;
+      } else {
+        // Fallback if no checkout URL
+        toast.success(t("booking.success"));
+        window.location.href = `/${locale}/booking/success?id=${result.booking.id}`;
+      }
     } catch (error) {
       toast.error(t("booking.error"));
     } finally {
