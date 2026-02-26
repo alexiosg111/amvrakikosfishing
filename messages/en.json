@@ -158,5 +158,28 @@
     "readMore": "Read More",
     "showLess": "Show Less",
     "hours": "hours"
+  },
+  "admin": {
+    "title": "Admin Panel",
+    "dashboard": "Dashboard",
+    "bookings": "Bookings",
+    "trips": "Trips",
+    "reviews": "Reviews",
+    "users": "Users",
+    "analytics": "Analytics",
+    "settings": "Settings",
+    "addons": "Add-Ons",
+    "vouchers": "Vouchers",
+    "gallery": "Gallery",
+    "totalRevenue": "Total Revenue",
+    "pendingBookings": "Pending Bookings",
+    "activeTrips": "Active Trips",
+    "recentActivity": "Recent Activity",
+    "quickActions": "Quick Actions",
+    "createTrip": "Create Trip",
+    "manageBookings": "Manage Bookings",
+    "moderateReviews": "Moderate Reviews",
+    "exportData": "Export Data",
+    "viewSite": "View Site"
   }
 }
