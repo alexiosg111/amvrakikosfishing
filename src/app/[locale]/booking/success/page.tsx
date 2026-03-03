@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import { getTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { retrieveCheckoutSession } from '@/lib/stripe';
