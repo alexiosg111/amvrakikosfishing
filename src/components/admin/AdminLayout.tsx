@@ -4,14 +4,16 @@ import { useState } from "react";
 import { AdminSidebar } from "./AdminSidebar";
 import { AdminHeader } from "./AdminHeader";
 import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 interface AdminLayoutProps {
   children: React.ReactNode;
-  locale: string;
 }
 
-export function AdminLayout({ children, locale }: AdminLayoutProps) {
+export function AdminLayout({ children }: AdminLayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const pathname = usePathname();
+  const locale = pathname.split("/")[1] || "en";
 
   return (
     <div className="flex h-screen overflow-hidden bg-muted/30">
